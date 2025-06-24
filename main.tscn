@@ -1,13 +1,16 @@
-[gd_scene load_steps=7 format=3 uid="uid://ewsgd2ngo66o"]
+[gd_scene load_steps=9 format=3 uid="uid://ewsgd2ngo66o"]
 
+[ext_resource type="Script" uid="uid://b6timde5es2dd" path="res://main.gd" id="1_5vw27"]
 [ext_resource type="PackedScene" uid="uid://dvj115hs0rbmm" path="res://Objs/Tree/tree.tscn" id="1_h2yge"]
 [ext_resource type="PackedScene" uid="uid://bngmd4lnmsuap" path="res://Player/player.tscn" id="2_1bvp3"]
 [ext_resource type="PackedScene" uid="uid://y1tgouamybjn" path="res://Objs/Maps/main_map.tscn" id="2_h2yge"]
 [ext_resource type="PackedScene" uid="uid://cpxgm3sujoi2g" path="res://Objs/Maps/second_map.tscn" id="3_1bvp3"]
 [ext_resource type="PackedScene" uid="uid://bv86eny7wuba" path="res://Objs/Door/door.tscn" id="5_lquwl"]
 [ext_resource type="PackedScene" uid="uid://0wqcsiqswy05" path="res://door_end.tscn" id="6_7mycd"]
+[ext_resource type="PackedScene" uid="uid://odbxyjyxgq2s" path="res://UI/tablet.tscn" id="7_272bh"]
 
 [node name="Main" type="Node"]
+script = ExtResource("1_5vw27")
 
 [node name="Node2D" type="Node2D" parent="."]
 
@@ -52,3 +55,5 @@ endDoorPath = NodePath("DoorEnd")
 
 [node name="DoorEnd" parent="Node2D/Door4" instance=ExtResource("6_7mycd")]
 position = Vector2(-2688, 824)
+
+[node name="Tablet" parent="." instance=ExtResource("7_272bh")]
