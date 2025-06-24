@@ -1,0 +1,38 @@
+[gd_scene load_steps=5 format=3 uid="uid://dvj115hs0rbmm"]
+
+[ext_resource type="Script" uid="uid://cd7gk3n36ws7e" path="res://Objs/Tree/tree.gd" id="1_5fg6y"]
+[ext_resource type="Texture2D" uid="uid://c8ji654nd7cip" path="res://Arts/Tree.png" id="1_hqiwy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rg7co"]
+size = Vector2(64, 64)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5fg6y"]
+radius = 128.0
+
+[node name="Tree" type="StaticBody2D"]
+script = ExtResource("1_5fg6y")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_rg7co")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_hqiwy")
+
+[node name="InteractLabel" type="Label" parent="."]
+visible = false
+z_index = 10
+offset_left = -120.0
+offset_top = -77.0
+offset_right = 30.0
+offset_bottom = -54.0
+scale = Vector2(1.66924, 1.66924)
+text = "Click to Interact"
+
+[node name="TreeRange" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TreeRange"]
+shape = SubResource("CircleShape2D_5fg6y")
+
+[connection signal="body_entered" from="TreeRange" to="." method="_on_tree_range_body_entered"]
+[connection signal="body_exited" from="TreeRange" to="." method="_on_tree_range_body_exited"]
