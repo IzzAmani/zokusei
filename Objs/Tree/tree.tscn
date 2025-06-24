@@ -20,7 +20,6 @@ texture_filter = 1
 texture = ExtResource("1_hqiwy")
 
 [node name="InteractLabel" type="Label" parent="."]
-visible = false
 z_index = 10
 offset_left = -120.0
 offset_top = -77.0
@@ -28,6 +27,7 @@ offset_right = 30.0
 offset_bottom = -54.0
 scale = Vector2(1.66924, 1.66924)
 text = "Click to Interact"
+horizontal_alignment = 1
 
 [node name="TreeRange" type="Area2D" parent="."]
 
