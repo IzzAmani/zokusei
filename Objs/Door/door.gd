@@ -1,19 +1,28 @@
 extends Area2D
 
-@export var endDoorPath: NodePath
-var endDoor: Marker2D
+signal change_room(current_room)
 
-func _ready():
-    if endDoorPath:
-        endDoor = get_node(endDoorPath)
-    else:
-        push_error("END DOOR PATH NOT DEFINED")
-        
-func _on_body_entered(body: Node2D) :
-    if body.name != "Player" :
-        return
-        
-    if endDoor:
-        body.global_position = endDoor.global_position
-        
+
+func _ready() -> void :
+    add_to_group("Doors")
     
+func _on_body_entered(player: Node2D) -> void :
+    if player.name != "Player":
+        return
+ 
+    #if player.direction.x == 1 :
+        #player.position.x += 64 * 4
+    #
+    #elif player.direction.x == -1 :
+        #player.position.x -= 64 * 4
+    #
+    #elif player.direction.y == 1 :
+        #player.position.y += 64 * 4
+    #
+    #elif player.direction.y == -1 :
+        #player.position.y -= 64 * 4
+        #
+        
+    print("doorGD:", player.direction, player.position)
+        
+    emit_signal("change_room", player.direction)

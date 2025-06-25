@@ -1,22 +1,21 @@
-[gd_scene load_steps=5 format=3 uid="uid://odbxyjyxgq2s"]
+[gd_scene load_steps=6 format=3 uid="uid://odbxyjyxgq2s"]
 
+[ext_resource type="Script" uid="uid://s2wpvm51yb3o" path="res://UI/tablet.gd" id="1_voad8"]
 [ext_resource type="Texture2D" uid="uid://hmh3cxyhme6l" path="res://Arts/TabletBG.png" id="2_u2kli"]
 [ext_resource type="FontFile" uid="uid://bneiwm4cres16" path="res://Arts/ByteBounce.ttf" id="2_voad8"]
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1pblh"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_voad8"]
 texture = ExtResource("2_u2kli")
 expand_margin_left = 60.0
 expand_margin_top = 70.0
 expand_margin_right = 60.0
 expand_margin_bottom = 80.0
 
-[sub_resource type="Theme" id="Theme_u2kli"]
+[sub_resource type="Theme" id="Theme_1pblh"]
 default_font = ExtResource("2_voad8")
 default_font_size = 35
 
-[node name="CanvasLayer" type="CanvasLayer"]
-
-[node name="Control" type="Control" parent="."]
+[node name="Tablet" type="Control"]
 layout_mode = 3
 anchors_preset = 3
 anchor_left = 1.0
@@ -26,8 +25,10 @@ anchor_bottom = 1.0
 grow_horizontal = 0
 grow_vertical = 0
 scale = Vector2(0.740722, 0.740722)
+script = ExtResource("1_voad8")
 
-[node name="Panel" type="Panel" parent="Control"]
+[node name="Panel" type="Panel" parent="."]
+texture_filter = 1
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
@@ -41,96 +42,97 @@ offset_bottom = 66.4889
 grow_horizontal = 0
 grow_vertical = 0
 scale = Vector2(0.723193, 0.723193)
-theme_override_styles/panel = SubResource("StyleBoxTexture_1pblh")
+theme_override_styles/panel = SubResource("StyleBoxTexture_voad8")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Control/Panel"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+texture_filter = 1
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
 offset_bottom = 218.0
 grow_horizontal = 2
-theme = SubResource("Theme_u2kli")
+theme = SubResource("Theme_1pblh")
 theme_override_constants/separation = 25
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Control/Panel/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
-[node name="Label" type="Label" parent="Control/Panel/VBoxContainer/HBoxContainer"]
+[node name="Label" type="Label" parent="Panel/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 text = "Kill Yourself: "
 
-[node name="Button" type="Button" parent="Control/Panel/VBoxContainer/HBoxContainer"]
+[node name="Button" type="Button" parent="Panel/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 toggle_mode = true
 text = "Affirm :P :P ;P"
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="Control/Panel/VBoxContainer"]
+[node name="HBoxContainer2" type="HBoxContainer" parent="Panel/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
-[node name="Label" type="Label" parent="Control/Panel/VBoxContainer/HBoxContainer2"]
+[node name="Label" type="Label" parent="Panel/VBoxContainer/HBoxContainer2"]
 layout_mode = 2
 size_flags_horizontal = 4
 text = "Kill Yourself: "
 
-[node name="Button" type="Button" parent="Control/Panel/VBoxContainer/HBoxContainer2"]
+[node name="Button" type="Button" parent="Panel/VBoxContainer/HBoxContainer2"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 toggle_mode = true
 text = "Affirm :P :P ;P"
 
-[node name="HBoxContainer3" type="HBoxContainer" parent="Control/Panel/VBoxContainer"]
+[node name="HBoxContainer3" type="HBoxContainer" parent="Panel/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
-[node name="Label" type="Label" parent="Control/Panel/VBoxContainer/HBoxContainer3"]
+[node name="Label" type="Label" parent="Panel/VBoxContainer/HBoxContainer3"]
 layout_mode = 2
 size_flags_horizontal = 4
 text = "Kill Yourself: "
 
-[node name="Button" type="Button" parent="Control/Panel/VBoxContainer/HBoxContainer3"]
+[node name="Button" type="Button" parent="Panel/VBoxContainer/HBoxContainer3"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 toggle_mode = true
 text = "Affirm :P :P ;P"
 
-[node name="HBoxContainer4" type="HBoxContainer" parent="Control/Panel/VBoxContainer"]
+[node name="HBoxContainer4" type="HBoxContainer" parent="Panel/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
-[node name="Label" type="Label" parent="Control/Panel/VBoxContainer/HBoxContainer4"]
+[node name="Label" type="Label" parent="Panel/VBoxContainer/HBoxContainer4"]
 layout_mode = 2
 size_flags_horizontal = 4
 text = "Kill Yourself: "
 
-[node name="Button" type="Button" parent="Control/Panel/VBoxContainer/HBoxContainer4"]
+[node name="Button" type="Button" parent="Panel/VBoxContainer/HBoxContainer4"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 toggle_mode = true
 text = "Affirm :P :P ;P"
 
-[node name="HBoxContainer5" type="HBoxContainer" parent="Control/Panel/VBoxContainer"]
+[node name="HBoxContainer5" type="HBoxContainer" parent="Panel/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
-[node name="Label" type="Label" parent="Control/Panel/VBoxContainer/HBoxContainer5"]
+[node name="Label" type="Label" parent="Panel/VBoxContainer/HBoxContainer5"]
 layout_mode = 2
 size_flags_horizontal = 4
 text = "Kill Yourself: "
 
-[node name="Button" type="Button" parent="Control/Panel/VBoxContainer/HBoxContainer5"]
+[node name="Button" type="Button" parent="Panel/VBoxContainer/HBoxContainer5"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
