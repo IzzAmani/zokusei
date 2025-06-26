@@ -1,6 +1,6 @@
 [gd_resource type="Theme" load_steps=9 format=3 uid="uid://dlxpx733brbbp"]
 
-[ext_resource type="FontFile" uid="uid://cmf6ys3mbp62f" path="res://Arts/ByteBounce.ttf" id="1_r0p77"]
+[ext_resource type="FontFile" uid="uid://bneiwm4cres16" path="res://Arts/ByteBounce.ttf" id="1_r0p77"]
 [ext_resource type="Texture2D" uid="uid://c51b1gv02m4ol" path="res://Arts/New Piskel.png" id="2_ygrjk"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6tl50"]

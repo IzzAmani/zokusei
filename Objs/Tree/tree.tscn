@@ -3,17 +3,17 @@
 [ext_resource type="Script" uid="uid://cd7gk3n36ws7e" path="res://Objs/Tree/tree.gd" id="1_5fg6y"]
 [ext_resource type="Texture2D" uid="uid://c8ji654nd7cip" path="res://Arts/Tree.png" id="1_hqiwy"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_rg7co"]
-size = Vector2(64, 64)
-
 [sub_resource type="CircleShape2D" id="CircleShape2D_5fg6y"]
 radius = 128.0
 
-[node name="Tree" type="StaticBody2D"]
-script = ExtResource("1_5fg6y")
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rg7co"]
+size = Vector2(64, 64)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_rg7co")
+[node name="Tree" type="Node2D"]
+script = ExtResource("1_5fg6y")
+attributes = {
+"Collision": true
+}
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
@@ -28,11 +28,24 @@ offset_bottom = -54.0
 scale = Vector2(1.66924, 1.66924)
 text = "Click to Interact"
 horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="TreeRange" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TreeRange"]
 shape = SubResource("CircleShape2D_5fg6y")
 
+[node name="TreeHitbox" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TreeHitbox"]
+shape = SubResource("RectangleShape2D_rg7co")
+
+[node name="TreeArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TreeArea"]
+shape = SubResource("RectangleShape2D_rg7co")
+
 [connection signal="body_entered" from="TreeRange" to="." method="_on_tree_range_body_entered"]
 [connection signal="body_exited" from="TreeRange" to="." method="_on_tree_range_body_exited"]
+[connection signal="mouse_entered" from="TreeArea" to="." method="_on_tree_area_mouse_entered"]
+[connection signal="mouse_exited" from="TreeArea" to="." method="_on_tree_area_mouse_exited"]

@@ -34,7 +34,7 @@ func _ready() -> void:
     TransitionBG.modulate.a = 0
     
     # Toggle Tablet Visibility
-    TreeNode.player_enter.connect(
+    TreeNode.toggle_tablet.connect(
         func (show: bool) :
             TabletNode.visible = show    
     )
@@ -52,10 +52,11 @@ func _ready() -> void:
                 
                 current_room += p_dir
         )
-    TransitionAnim.animation_finished.connect(_on_animation_finished)
+    TransitionAnim.animation_finished.connect(animation_finished)
+    
     
 
-func _on_animation_finished(name: String) -> void :
+func animation_finished(name: String) -> void :
     if name == "FadeIn" :
         PlayerNode.position += player_direction * 64 * 5.5
         change_camera(current_room)
