@@ -3,7 +3,7 @@ extends Node
 var active_scene: Node = null
 
 func _ready() :
-    #active_scene = get_node("/root/MainMenu")
+    active_scene = get_node("/root/MainMenu")
     pass
     
     
