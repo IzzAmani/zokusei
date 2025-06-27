@@ -1,0 +1,50 @@
+[gd_scene load_steps=5 format=3 uid="uid://p4ofdlqbeic3"]
+
+[ext_resource type="Script" uid="uid://b42jofhaxq8oo" path="res://Objs/Vines/vines.gd" id="1_sipp2"]
+[ext_resource type="Texture2D" uid="uid://bpnordf4mqxva" path="res://Arts/Vines.png" id="2_ggffs"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ggffs"]
+size = Vector2(128, 64)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ggffs"]
+radius = 128.0
+
+[node name="Vines" type="Node2D"]
+script = ExtResource("1_sipp2")
+attributes = {
+"Collision": true,
+"Flammable": false,
+"Prickly": false,
+"Size": 1
+}
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("2_ggffs")
+
+[node name="TextHint" type="Label" parent="."]
+offset_left = -64.0
+offset_top = -54.0
+offset_right = 60.0
+offset_bottom = -31.0
+text = "ijdzgufhsdiugfiu"
+
+[node name="Hitbox" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+shape = SubResource("RectangleShape2D_ggffs")
+
+[node name="Range" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Range"]
+shape = SubResource("CircleShape2D_ggffs")
+
+[node name="Area" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area"]
+shape = SubResource("RectangleShape2D_ggffs")
+
+[connection signal="body_entered" from="Range" to="." method="_on_range_body_entered"]
+[connection signal="body_exited" from="Range" to="." method="_on_range_body_exited"]
+[connection signal="mouse_entered" from="Area" to="." method="_on_area_mouse_entered"]
+[connection signal="mouse_exited" from="Area" to="." method="_on_area_mouse_exited"]

@@ -1,13 +1,15 @@
-[gd_scene load_steps=9 format=3 uid="uid://ewsgd2ngo66o"]
+[gd_scene load_steps=11 format=3 uid="uid://ewsgd2ngo66o"]
 
 [ext_resource type="Script" uid="uid://b6timde5es2dd" path="res://main.gd" id="1_5vw27"]
 [ext_resource type="PackedScene" uid="uid://dvj115hs0rbmm" path="res://Objs/Tree/tree.tscn" id="1_h2yge"]
 [ext_resource type="PackedScene" uid="uid://bngmd4lnmsuap" path="res://Player/player.tscn" id="2_1bvp3"]
 [ext_resource type="PackedScene" uid="uid://y1tgouamybjn" path="res://Objs/Maps/main_map.tscn" id="2_h2yge"]
 [ext_resource type="PackedScene" uid="uid://cpxgm3sujoi2g" path="res://Objs/Maps/second_map.tscn" id="3_1bvp3"]
+[ext_resource type="PackedScene" uid="uid://p4ofdlqbeic3" path="res://Objs/Vines/vines.tscn" id="3_kek77"]
 [ext_resource type="PackedScene" uid="uid://bv86eny7wuba" path="res://Objs/Door/door.tscn" id="5_lquwl"]
 [ext_resource type="PackedScene" uid="uid://odbxyjyxgq2s" path="res://UI/tablet.tscn" id="7_272bh"]
 [ext_resource type="PackedScene" uid="uid://cksc7v3fxbrvm" path="res://UI/transition.tscn" id="8_5vw27"]
+[ext_resource type="PackedScene" uid="uid://kfm8up4pp76l" path="res://UI/hurt_scr.tscn" id="10_4c57u"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_5vw27")
@@ -15,6 +17,24 @@ script = ExtResource("1_5vw27")
 [node name="Node2D" type="Node2D" parent="."]
 
 [node name="MainMap" parent="Node2D" instance=ExtResource("2_h2yge")]
+
+[node name="Vines" parent="Node2D/MainMap" instance=ExtResource("3_kek77")]
+position = Vector2(896, 928)
+attributes = {
+"Collision": true,
+"Flammable": false,
+"Prickly": true,
+"Size": 1
+}
+
+[node name="Vines2" parent="Node2D/MainMap" instance=ExtResource("3_kek77")]
+position = Vector2(640, 832)
+
+[node name="Vines3" parent="Node2D/MainMap" instance=ExtResource("3_kek77")]
+position = Vector2(1088, 832)
+
+[node name="Tree" parent="Node2D/MainMap" instance=ExtResource("1_h2yge")]
+position = Vector2(1211, 583)
 
 [node name="Door" parent="Node2D/MainMap" instance=ExtResource("5_lquwl")]
 position = Vector2(896, 992)
@@ -28,9 +48,6 @@ position = Vector2(896, 96)
 [node name="Player" parent="Node2D" instance=ExtResource("2_1bvp3")]
 position = Vector2(896, 506)
 
-[node name="Tree" parent="Node2D" instance=ExtResource("1_h2yge")]
-position = Vector2(1211, 583)
-
 [node name="UI" type="CanvasLayer" parent="."]
 layer = 128
 
@@ -38,3 +55,5 @@ layer = 128
 
 [node name="Tablet" parent="UI" instance=ExtResource("7_272bh")]
 visible = false
+
+[node name="HurtScr" parent="UI" instance=ExtResource("10_4c57u")]
