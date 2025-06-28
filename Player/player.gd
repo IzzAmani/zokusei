@@ -8,7 +8,7 @@ var frames = 0
 var torch_rot = 0
 
 @onready var Torch := $Torch
-
+@onready var sprite = $Sprite2D
 
 func _ready():
     scr_size = get_viewport_rect().size
@@ -22,24 +22,30 @@ func _physics_process(delta):
         velocity += Vector2(1, 0)
         direction = Vector2(1, 0)
         torch_rot = PI/2
+        sprite.play("right")
         
     if Input.is_action_pressed("playermoveL"):
         velocity += Vector2(-1, 0)
         direction = Vector2(-1, 0)
         torch_rot = -PI/2
+        sprite.play("left")
        
     if Input.is_action_pressed("playermoveD"):
         velocity += Vector2(0, 1)
         direction = Vector2(0, 1)
         torch_rot = PI
+        sprite.play("down")
        
     if Input.is_action_pressed("playermoveU"):
         velocity += Vector2(0, -1)
         direction = Vector2(0, -1)
         torch_rot = 0
+        sprite.play("up")
             
     if velocity.length() > 0:
         velocity = velocity.normalized() * speed
+    else:
+        sprite.frame = 1
        
     move_and_slide()
     
