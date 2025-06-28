@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bpnordf4mqxva" path="res://Arts/Vines.png" id="2_ggffs"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ggffs"]
-size = Vector2(128, 42)
+size = Vector2(146, 42)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ggffs"]
 radius = 128.0
