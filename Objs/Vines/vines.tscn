@@ -4,12 +4,13 @@
 [ext_resource type="Texture2D" uid="uid://bpnordf4mqxva" path="res://Arts/Vines.png" id="2_ggffs"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ggffs"]
-size = Vector2(128, 64)
+size = Vector2(128, 42)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ggffs"]
 radius = 128.0
 
 [node name="Vines" type="Node2D"]
+z_index = 1
 script = ExtResource("1_sipp2")
 attributes = {
 "Collision": true,
@@ -32,6 +33,13 @@ text = "ijdzgufhsdiugfiu"
 [node name="Hitbox" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(0, 11)
+shape = SubResource("RectangleShape2D_ggffs")
+
+[node name="Area" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area"]
+position = Vector2(0, 11)
 shape = SubResource("RectangleShape2D_ggffs")
 
 [node name="Range" type="Area2D" parent="."]
@@ -39,12 +47,7 @@ shape = SubResource("RectangleShape2D_ggffs")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Range"]
 shape = SubResource("CircleShape2D_ggffs")
 
-[node name="Area" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area"]
-shape = SubResource("RectangleShape2D_ggffs")
-
-[connection signal="body_entered" from="Range" to="." method="_on_range_body_entered"]
-[connection signal="body_exited" from="Range" to="." method="_on_range_body_exited"]
 [connection signal="mouse_entered" from="Area" to="." method="_on_area_mouse_entered"]
 [connection signal="mouse_exited" from="Area" to="." method="_on_area_mouse_exited"]
+[connection signal="body_entered" from="Range" to="." method="_on_range_body_entered"]
+[connection signal="body_exited" from="Range" to="." method="_on_range_body_exited"]

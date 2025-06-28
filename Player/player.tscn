@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://bngmd4lnmsuap"]
+[gd_scene load_steps=7 format=3 uid="uid://bngmd4lnmsuap"]
 
 [ext_resource type="Texture2D" uid="uid://dowa8bb8iqtow" path="res://Arts/Player.png" id="1_4flbx"]
 [ext_resource type="Script" uid="uid://ctbqdrwsch1se" path="res://Player/player.gd" id="1_onrkg"]
@@ -9,6 +9,9 @@ size = Vector2(64, 64)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4ntmi"]
 radius = 128.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_btcbx"]
+size = Vector2(14, 51)
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_onrkg")
@@ -34,3 +37,38 @@ texture_filter = 1
 position = Vector2(-9.53674e-07, -67)
 scale = Vector2(0.658583, 0.658583)
 texture = ExtResource("3_btcbx")
+
+[node name="Right" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Right"]
+position = Vector2(32, 0)
+shape = SubResource("RectangleShape2D_btcbx")
+
+[node name="Left" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Left"]
+position = Vector2(-32, 0)
+shape = SubResource("RectangleShape2D_btcbx")
+
+[node name="Up" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Up"]
+position = Vector2(0, -32)
+rotation = 1.57079
+shape = SubResource("RectangleShape2D_btcbx")
+
+[node name="Down" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Down"]
+position = Vector2(0, 32)
+rotation = 1.57079
+shape = SubResource("RectangleShape2D_btcbx")
+
+[connection signal="body_entered" from="Right" to="." method="_on_right_body_entered"]
+[connection signal="body_exited" from="Right" to="." method="_on_right_body_exited"]
+[connection signal="body_entered" from="Left" to="." method="_on_left_body_entered"]
+[connection signal="body_exited" from="Left" to="." method="_on_left_body_exited"]
+[connection signal="body_entered" from="Up" to="." method="_on_up_body_entered"]
+[connection signal="body_exited" from="Up" to="." method="_on_up_body_exited"]
+[connection signal="body_entered" from="Down" to="." method="_on_down_body_entered"]
+[connection signal="body_exited" from="Down" to="." method="_on_down_body_exited"]

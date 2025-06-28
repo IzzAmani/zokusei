@@ -1,0 +1,113 @@
+[gd_scene load_steps=10 format=3 uid="uid://dkn0ar2k0xa43"]
+
+[ext_resource type="Script" uid="uid://djfs5n0ukd8j3" path="res://Objs/Chest/chest.gd" id="1_i8hno"]
+[ext_resource type="Texture2D" uid="uid://bulf671fbks7c" path="res://Arts/Chest.png" id="1_yjgte"]
+[ext_resource type="Texture2D" uid="uid://pkktktn50cgg" path="res://Arts/Particles/star2.png" id="3_adhbs"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i8hno"]
+size = Vector2(64, 44)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_i8hno"]
+radius = 128.0
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_s1gvh"]
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 30.0
+angle_min = -180.9
+angle_max = 180.9
+direction = Vector3(0, -5, 0)
+initial_velocity_min = 500.0
+initial_velocity_max = 700.0
+angular_velocity_min = 200.0
+angular_velocity_max = 300.0
+gravity = Vector3(0, 100, 0)
+scale_min = 0.5
+scale_max = 1.5
+hue_variation_min = -0.48
+hue_variation_max = 0.48
+
+[sub_resource type="Animation" id="Animation_adhbs"]
+resource_name = "FadeOut"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.5, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_s1gvh"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_s1gvh"]
+_data = {
+&"FadeOut": SubResource("Animation_adhbs"),
+&"RESET": SubResource("Animation_s1gvh")
+}
+
+[node name="Chest" type="Node2D"]
+script = ExtResource("1_i8hno")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_yjgte")
+
+[node name="Hitbox" type="StaticBody2D" parent="."]
+position = Vector2(0, 7)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(0, 3)
+shape = SubResource("RectangleShape2D_i8hno")
+
+[node name="Area" type="Area2D" parent="."]
+position = Vector2(0, 7)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area"]
+position = Vector2(0, 3)
+shape = SubResource("RectangleShape2D_i8hno")
+
+[node name="Range" type="Area2D" parent="."]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Range"]
+shape = SubResource("CircleShape2D_i8hno")
+
+[node name="Particles" type="GPUParticles2D" parent="."]
+texture_filter = 1
+position = Vector2(0, 7)
+emitting = false
+amount = 100
+texture = ExtResource("3_adhbs")
+lifetime = 0.25
+one_shot = true
+randomness = 1.0
+process_material = SubResource("ParticleProcessMaterial_s1gvh")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_s1gvh")
+}
+
+[connection signal="mouse_entered" from="Area" to="." method="_on_area_mouse_entered"]
+[connection signal="mouse_exited" from="Area" to="." method="_on_area_mouse_exited"]
+[connection signal="body_entered" from="Range" to="." method="_on_range_body_entered"]
+[connection signal="body_exited" from="Range" to="." method="_on_range_body_exited"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
