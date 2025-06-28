@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://ewsgd2ngo66o"]
+[gd_scene load_steps=14 format=3 uid="uid://ewsgd2ngo66o"]
 
 [ext_resource type="Script" uid="uid://b6timde5es2dd" path="res://main.gd" id="1_5vw27"]
 [ext_resource type="PackedScene" uid="uid://dvj115hs0rbmm" path="res://Objs/Tree/tree.tscn" id="1_h2yge"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://nrihmfkuds5b" path="res://Objs/Crate/crate.tscn" id="7_dg77c"]
 [ext_resource type="PackedScene" uid="uid://cksc7v3fxbrvm" path="res://UI/transition.tscn" id="8_5vw27"]
 [ext_resource type="PackedScene" uid="uid://kfm8up4pp76l" path="res://UI/hurt_scr.tscn" id="10_4c57u"]
+[ext_resource type="PackedScene" uid="uid://ctslhh8ubu2ps" path="res://Scene/pause_menu.tscn" id="13_ycdy4"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_5vw27")
@@ -65,3 +66,6 @@ layer = 128
 visible = false
 
 [node name="HurtScr" parent="UI" instance=ExtResource("10_4c57u")]
+
+[node name="PauseMenu" parent="UI" instance=ExtResource("13_ycdy4")]
+visible = false

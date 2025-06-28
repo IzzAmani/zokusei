@@ -1,7 +1,5 @@
 extends Node
 
-signal changeMap
-
 var PlayerNode : Node
 var CameraNode : Node
 var TreeNode : Node 

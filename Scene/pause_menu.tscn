@@ -1,0 +1,181 @@
+[gd_scene load_steps=7 format=3 uid="uid://ctslhh8ubu2ps"]
+
+[ext_resource type="Texture2D" uid="uid://bj3pdq8adagd8" path="res://Arts/TabletMenu.png" id="1_i3got"]
+[ext_resource type="Script" uid="uid://2hp4t06yphsf" path="res://Scene/pause_menu.gd" id="1_ur6gg"]
+
+[sub_resource type="Animation" id="Animation_ur6gg"]
+resource_name = "SlideIn"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRect:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(0.66, 2),
+"update": 0,
+"values": [Vector2(512, 926), Vector2(512, 264)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0.498039)]
+}
+
+[sub_resource type="Animation" id="Animation_52pyj"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRect:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(512, 264)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0.498039)]
+}
+
+[sub_resource type="Animation" id="Animation_8dofg"]
+resource_name = "SlideOut"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRect:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(0.45, 1),
+"update": 0,
+"values": [Vector2(512, 264), Vector2(512, 926)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0.498039), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8dofg"]
+_data = {
+&"RESET": SubResource("Animation_52pyj"),
+&"SlideIn": SubResource("Animation_ur6gg"),
+&"SlideOut": SubResource("Animation_8dofg")
+}
+
+[node name="PauseMenu" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ur6gg")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+modulate = Color(1, 1, 1, 0.498039)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -128.0
+offset_top = 565.999
+offset_right = 128.0
+offset_bottom = 757.999
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(3, 3)
+pivot_offset = Vector2(128, 96)
+texture = ExtResource("1_i3got")
+
+[node name="Panel" type="Panel" parent="TextureRect"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+offset_left = 32.0
+offset_top = 19.2
+offset_right = 220.16
+offset_bottom = 172.8
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TextureRect/Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.1
+anchor_top = 0.3
+anchor_right = 0.9
+anchor_bottom = 0.7
+offset_top = -45.78
+offset_right = -0.528
+offset_bottom = 45.78
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.9, 0.9)
+pivot_offset = Vector2(75, 76)
+theme_override_constants/separation = 30
+
+[node name="Resume" type="Button" parent="TextureRect/Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+mouse_default_cursor_shape = 2
+text = "Resume"
+
+[node name="Settings" type="Button" parent="TextureRect/Panel/VBoxContainer"]
+layout_mode = 2
+mouse_default_cursor_shape = 2
+text = "Settings"
+
+[node name="Quit" type="Button" parent="TextureRect/Panel/VBoxContainer"]
+layout_mode = 2
+mouse_default_cursor_shape = 2
+text = "Quit"
+
+[node name="Anim" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_8dofg")
+}
+
+[connection signal="pressed" from="TextureRect/Panel/VBoxContainer/Resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="TextureRect/Panel/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
+[connection signal="animation_finished" from="Anim" to="." method="_on_anim_animation_finished"]

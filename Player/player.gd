@@ -57,35 +57,7 @@ func _physics_process(delta):
         if collided_node.is_in_group("Vines") and collided_node.attributes["Prickly"] :
             get_tree().root.get_node("Main/UI/HurtScr/ColorRect/AnimationPlayer").play("FadeOut")
             
-        #elif collided_node.is_in_group("Crates") and collided_node.attributes["Pushable"] :
-            ##collided_node.get_node("Hitbox/CollisionShape2D").disabled = true
-            #collided_node.position = collided_node.position + Vector2(10, 0).rotated(player_rot)      
-    
-    
-    #if $RayCast2D.is_colliding() :
-        #var collider = $RayCast2D.get_collider()
-        #if !collider :
-            #return
-            #
-        #print("Hit:", collider)
-        ##collider.get_parent().queue_free()
-#
-        #collider.get_parent().position.x +=  + speed * delta
-    # Assume this is a RayCast2D child of your player:
-    #var ray = $RayCast2D
-#
-    ## Point it 32 pixels to the right
-    #ray.target_position = Vector2(1, 0)
-#
-    ## Optionally, update immediately if needed
-    #ray.force_raycast_update()
-#
-    #if ray.is_colliding():
-        #var collider = ray.get_collider()
-        #print("Hit:", collider.name)
-        #collider.apply_impulse(Vector2(400, 0))
-        ##collider.queue_free()
-            #
+    # For pushing crates idk
     if detected.body :
         if detected.body.is_in_group("Crates") :
             var friction = 169
