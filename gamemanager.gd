@@ -16,5 +16,6 @@ func change_scene(scene_path: String) :
     active_scene = scene
     
     if scene.name == "MainMenu" :
+        get_tree().paused = false
         print("yes main")
         $"../MainMenu/".start_anim()

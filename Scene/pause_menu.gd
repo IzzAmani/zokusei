@@ -28,12 +28,12 @@ func _on_anim_animation_finished(anim_name: StringName) -> void:
 
 
 func _input(evt):
-    if evt.is_action_pressed("pauseMenu"):
+    if evt.is_action_pressed("pauseMenu") and !animation_playing:
         show_menu(!get_tree().paused)
 
 
 func _on_resume_pressed() -> void:
-    show_menu(true)
+    show_menu(false)
 
 
 func _on_quit_pressed() -> void:
