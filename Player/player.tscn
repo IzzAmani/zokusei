@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://bngmd4lnmsuap"]
+[gd_scene load_steps=6 format=3 uid="uid://bngmd4lnmsuap"]
 
 [ext_resource type="Texture2D" uid="uid://dowa8bb8iqtow" path="res://Arts/Player.png" id="1_4flbx"]
 [ext_resource type="Script" uid="uid://ctbqdrwsch1se" path="res://Player/player.gd" id="1_onrkg"]
+[ext_resource type="Texture2D" uid="uid://roniv5ycqp61" path="res://Arts/Torch.png" id="3_btcbx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4ntmi"]
 size = Vector2(64, 64)
@@ -28,4 +29,8 @@ shape = SubResource("RectangleShape2D_4ntmi")
 visible = false
 shape = SubResource("CircleShape2D_4ntmi")
 
-[connection signal="body_entered" from="InteractRange" to="." method="_on_interact_range_body_entered"]
+[node name="Torch" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-9.53674e-07, -67)
+scale = Vector2(0.658583, 0.658583)
+texture = ExtResource("3_btcbx")
