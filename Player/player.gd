@@ -22,26 +22,33 @@ func _physics_process(delta):
         velocity += Vector2(1, 0)
         direction = Vector2(1, 0)
         torch_rot = PI/2
-        sprite.play("right")
         
     if Input.is_action_pressed("playermoveL"):
         velocity += Vector2(-1, 0)
         direction = Vector2(-1, 0)
         torch_rot = -PI/2
-        sprite.play("left")
+        #sprite.play("left")
        
     if Input.is_action_pressed("playermoveD"):
         velocity += Vector2(0, 1)
         direction = Vector2(0, 1)
         torch_rot = PI
-        sprite.play("down")
+        #sprite.play("down")
        
     if Input.is_action_pressed("playermoveU"):
         velocity += Vector2(0, -1)
         direction = Vector2(0, -1)
         torch_rot = 0
-        sprite.play("up")
+        #sprite.play("up")
             
+    if direction == Vector2(1, 0):
+        sprite.play("right")
+    elif direction == Vector2(-1,0):
+        sprite.play("left")
+    elif direction == Vector2(0,1):
+        sprite.play("down")
+    elif direction == Vector2(0,-1):
+        sprite.play("up")
     if velocity.length() > 0:
         velocity = velocity.normalized() * speed
     else:
