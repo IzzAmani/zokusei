@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://bgn5i08y4s776"]
+[gd_scene load_steps=29 format=3 uid="uid://bgn5i08y4s776"]
 
 [ext_resource type="Script" uid="uid://dnyskp0eu7pwh" path="res://main_menu/main_menu.gd" id="1_6tl50"]
 [ext_resource type="Texture2D" uid="uid://b4uahd3i7uen8" path="res://Arts/ui/game_title.png" id="1_oa53l"]
@@ -8,7 +8,6 @@
 [ext_resource type="Theme" uid="uid://dlxpx733brbbp" path="res://main_menu/main_menu.tres" id="4_3f7m4"]
 [ext_resource type="Texture2D" uid="uid://vqawgvqmv8tw" path="res://Arts/ui/bg/3.png" id="4_og6xe"]
 [ext_resource type="Texture2D" uid="uid://ciquwrgjxxmhx" path="res://Arts/ui/bg/bgforeground.png" id="5_og6xe"]
-[ext_resource type="Script" uid="uid://csvvt2kisi8m1" path="res://main_menu/hint.gd" id="6_t6bnd"]
 [ext_resource type="Script" uid="uid://bogl37sfwdxgj" path="res://main_menu/quit.gd" id="10_mvfl2"]
 [ext_resource type="Script" uid="uid://dka4cnm6bakvs" path="res://main_menu/play.gd" id="10_qvn4f"]
 
@@ -528,7 +527,6 @@ grow_vertical = 2
 theme = ExtResource("4_3f7m4")
 theme_override_constants/outline_size = 8
 text = "CLICK TO START"
-script = ExtResource("6_t6bnd")
 metadata/_edit_use_anchors_ = true
 
 [node name="HintAnim" type="AnimationPlayer" parent="Hint"]
