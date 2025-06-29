@@ -18,6 +18,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 GameManager="*res://gamemanager.gd"
+DialogManager="*res://dialogmanager.gd"
 
 [display]
 
@@ -28,7 +29,7 @@ window/stretch/mode="viewport"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/godot-vim/plugin.cfg")
+enabled=PackedStringArray()
 
 [global_group]
 

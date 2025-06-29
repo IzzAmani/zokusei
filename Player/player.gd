@@ -9,7 +9,7 @@ var frames = 0
 var detected := {"body": null, "direction": null}
 
 @onready var Torch := $Torch
-
+@onready var sprite = $Sprite2D
 
 func _ready():
     scr_size = get_viewport_rect().size
@@ -38,9 +38,26 @@ func _physics_process(delta):
         velocity += Vector2(0, -1)
         direction = Vector2(0, -1)
         player_rot = -PI/2
-            
+
+        
+    if direction.x == 1 :
+        sprite.play("right")
+
+    elif direction.x == -1 :
+        sprite.play("left")
+
+    elif direction.y == -1:
+        sprite.play("up")
+    
+    elif direction.y == 1:
+        sprite.play("down")
+
+
+
     if velocity.length() > 0:
         velocity = velocity.normalized() * speed
+    else:
+        sprite.frame = 1
        
     move_and_slide()
     
