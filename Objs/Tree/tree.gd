@@ -8,10 +8,10 @@ var tablet_visible      := false
 
 # Dict => Attr_Name : [type(bool, int, str), whatToChange ]
 @export var attributes: Dictionary
-@onready var label = $InteractLabel 
+@onready var label_anim = $Icon/IconTexture/AnimationPlayer
 
 func _ready():
-    label.visible = false
+    #label.visible = false
     add_to_group("Objects")
     
     for attr in attributes :
@@ -20,12 +20,14 @@ func _ready():
 
 func _on_range_body_entered(body: Node2D):
     if (body.name == "Player"):
-        label.visible = true
+        #label.visible = true
+        label_anim.play("popout")
         player_entered_tree = true
     
 func _on_range_body_exited(body: Node2D):
     if (body.name == "Player"):
-        label.visible = false
+        #label.visible = false
+        label_anim.play_backwards("popout")
         player_entered_tree = false
         tablet_visible = false
         emit_signal("toggle_tablet", tablet_visible)
