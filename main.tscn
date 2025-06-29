@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://ewsgd2ngo66o"]
+[gd_scene load_steps=12 format=3 uid="uid://ewsgd2ngo66o"]
 
 [ext_resource type="Script" uid="uid://b6timde5es2dd" path="res://main.gd" id="1_5vw27"]
 [ext_resource type="PackedScene" uid="uid://dvj115hs0rbmm" path="res://Objs/Tree/tree.tscn" id="1_h2yge"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://odbxyjyxgq2s" path="res://UI/tablet.tscn" id="7_272bh"]
 [ext_resource type="PackedScene" uid="uid://cksc7v3fxbrvm" path="res://UI/transition.tscn" id="8_5vw27"]
 [ext_resource type="PackedScene" uid="uid://kfm8up4pp76l" path="res://UI/hurt_scr.tscn" id="10_4c57u"]
+[ext_resource type="PackedScene" uid="uid://dq6ypijb7n57a" path="res://UI/dialog.tscn" id="11_efxa6"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_5vw27")
@@ -57,3 +58,5 @@ layer = 128
 visible = false
 
 [node name="HurtScr" parent="UI" instance=ExtResource("10_4c57u")]
+
+[node name="Dialog" parent="UI" instance=ExtResource("11_efxa6")]
