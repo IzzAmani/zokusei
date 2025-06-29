@@ -7,7 +7,7 @@ var selected_text = []
 var is_running = false
 
 @onready var frame = $Frame
-@onready var text = $Frame/Text
+@onready var textlabel = $Frame/Text
 
 func _ready():
     self.visible = false
@@ -25,8 +25,15 @@ func load_em_text():
             return
 
 func show_text():
-    text.text = selected_text.pop_front()
-
+    var text = selected_text.pop_front()
+    await type_text(text)
+    
+func type_text(text: String) -> void:
+    for i in text.length():
+        var current_text = text.substr(0, i + 1)
+        textlabel.text = current_text
+        await get_tree().create_timer(.02).timeout
+    
 func next_line():
     if selected_text.size() > 0:
         show_text()
@@ -34,7 +41,7 @@ func next_line():
         finish()
         
 func finish():
-    text.text = ""
+    textlabel.text = ""
     get_tree().paused = false
     self.visible = false
     is_running = false
