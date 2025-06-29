@@ -19,6 +19,8 @@ func _ready():
 func _physics_process(delta):
     velocity = Vector2.ZERO
     
+    print(position)
+    
     if Input.is_action_pressed("playermoveR"):
         velocity += Vector2(1, 0)
         direction = Vector2(1, 0)

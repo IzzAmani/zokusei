@@ -4,7 +4,6 @@
 [ext_resource type="PackedScene" uid="uid://dvj115hs0rbmm" path="res://Objs/Tree/tree.tscn" id="1_h2yge"]
 [ext_resource type="PackedScene" uid="uid://bngmd4lnmsuap" path="res://Player/player.tscn" id="2_1bvp3"]
 [ext_resource type="PackedScene" uid="uid://y1tgouamybjn" path="res://Objs/Maps/main_map.tscn" id="2_h2yge"]
-[ext_resource type="PackedScene" uid="uid://cpxgm3sujoi2g" path="res://Objs/Maps/second_map.tscn" id="3_1bvp3"]
 [ext_resource type="PackedScene" uid="uid://p4ofdlqbeic3" path="res://Objs/Vines/vines.tscn" id="3_kek77"]
 [ext_resource type="PackedScene" uid="uid://bv86eny7wuba" path="res://Objs/Door/door.tscn" id="5_lquwl"]
 [ext_resource type="PackedScene" uid="uid://bm7ljwum4efuo" path="res://Objs/Sign/Sign.tscn" id="6_dg77c"]
@@ -12,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://odbxyjyxgq2s" path="res://UI/tablet.tscn" id="7_272bh"]
 [ext_resource type="PackedScene" uid="uid://nrihmfkuds5b" path="res://Objs/Crate/crate.tscn" id="7_dg77c"]
 [ext_resource type="PackedScene" uid="uid://cksc7v3fxbrvm" path="res://UI/transition.tscn" id="8_5vw27"]
+[ext_resource type="PackedScene" uid="uid://v0uttegcu8nm" path="res://Objs/Maps/room_t.tscn" id="9_vivmo"]
 [ext_resource type="PackedScene" uid="uid://kfm8up4pp76l" path="res://UI/hurt_scr.tscn" id="10_4c57u"]
 [ext_resource type="PackedScene" uid="uid://dq6ypijb7n57a" path="res://UI/dialog.tscn" id="11_efxa6"]
 [ext_resource type="PackedScene" uid="uid://ctslhh8ubu2ps" path="res://Scene/pause_menu.tscn" id="13_ycdy4"]
@@ -42,7 +42,7 @@ position = Vector2(1088, 832)
 position = Vector2(1211, 583)
 
 [node name="Door" parent="Node2D/MainMap" instance=ExtResource("5_lquwl")]
-position = Vector2(896, 992)
+position = Vector2(896, 1056)
 
 [node name="Chest" parent="Node2D/MainMap" instance=ExtResource("6_efxa6")]
 position = Vector2(704, 384)
@@ -54,11 +54,12 @@ position = Vector2(1216, 320)
 position = Vector2(896, 299)
 dialog = "niga"
 
-[node name="TileMapLayer" parent="Node2D" instance=ExtResource("3_1bvp3")]
+[node name="RoomT" parent="Node2D" instance=ExtResource("9_vivmo")]
 position = Vector2(0, 1088)
 
-[node name="Door2" parent="Node2D/TileMapLayer" instance=ExtResource("5_lquwl")]
-position = Vector2(896, 96)
+[node name="Door2" parent="Node2D/RoomT" instance=ExtResource("5_lquwl")]
+position = Vector2(896, 32)
+rotation = 3.14159
 
 [node name="Player" parent="Node2D" instance=ExtResource("2_1bvp3")]
 position = Vector2(896, 506)
