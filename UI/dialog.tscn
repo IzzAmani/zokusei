@@ -1,0 +1,50 @@
+[gd_scene load_steps=3 format=3 uid="uid://dq6ypijb7n57a"]
+
+[ext_resource type="Texture2D" uid="uid://dgyipbth6341d" path="res://Arts/ui/dialog.png" id="1_f8kg0"]
+[ext_resource type="FontFile" uid="uid://bneiwm4cres16" path="res://Arts/ByteBounce.ttf" id="2_mewqi"]
+
+[node name="Dialog" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Frame" type="NinePatchRect" parent="."]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.04375
+anchor_top = 0.668056
+anchor_right = 0.956469
+anchor_bottom = 0.988445
+offset_right = -0.280029
+offset_bottom = 0.319977
+grow_horizontal = 2
+texture = ExtResource("1_f8kg0")
+patch_margin_left = 33
+patch_margin_top = 36
+patch_margin_right = 36
+patch_margin_bottom = 33
+metadata/_edit_use_anchors_ = true
+
+[node name="Text" type="RichTextLabel" parent="Frame"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0342466
+anchor_top = 0.17316
+anchor_right = 0.965753
+anchor_bottom = 0.82684
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/default_color = Color(0.25098, 0.211765, 0.2, 1)
+theme_override_fonts/normal_font = ExtResource("2_mewqi")
+theme_override_font_sizes/bold_italics_font_size = 40
+theme_override_font_sizes/italics_font_size = 40
+theme_override_font_sizes/mono_font_size = 40
+theme_override_font_sizes/normal_font_size = 40
+theme_override_font_sizes/bold_font_size = 1
+text = "The fuck!"
+metadata/_edit_use_anchors_ = true
