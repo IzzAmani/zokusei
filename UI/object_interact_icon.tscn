@@ -1,0 +1,71 @@
+[gd_scene load_steps=5 format=3 uid="uid://bxjnwdp3qcgle"]
+
+[ext_resource type="Texture2D" uid="uid://d223ye1twv3is" path="res://Arts/ui/interact.png" id="1_67fkr"]
+
+[sub_resource type="Animation" id="Animation_gvboy"]
+resource_name = "popout"
+length = 0.2
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(0.34151, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(1.1, 1.1), Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_uhmkd"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ybbch"]
+_data = {
+&"RESET": SubResource("Animation_uhmkd"),
+&"popout": SubResource("Animation_gvboy")
+}
+
+[node name="Icon" type="Control"]
+z_index = 300
+layout_mode = 3
+anchors_preset = 0
+offset_right = 51.0
+offset_bottom = 51.0
+
+[node name="IconTexture" type="TextureRect" parent="."]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.252
+anchor_top = 0.5
+anchor_right = 0.252
+anchor_bottom = 0.5
+offset_left = -12.852
+offset_top = -25.5
+offset_right = 38.148
+offset_bottom = 25.5
+grow_horizontal = 0
+scale = Vector2(1e-05, 1e-05)
+pivot_offset = Vector2(20.065, 42.375)
+texture = ExtResource("1_67fkr")
+expand_mode = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="IconTexture"]
+libraries = {
+&"": SubResource("AnimationLibrary_ybbch")
+}
