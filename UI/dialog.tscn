@@ -1,24 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://dq6ypijb7n57a"]
+[gd_scene load_steps=8 format=3 uid="uid://dq6ypijb7n57a"]
 
+[ext_resource type="Script" uid="uid://cbpwa4fol601m" path="res://UI/dialog.gd" id="1_6byeb"]
 [ext_resource type="Texture2D" uid="uid://dgyipbth6341d" path="res://Arts/ui/dialog.png" id="1_f8kg0"]
 [ext_resource type="FontFile" uid="uid://bneiwm4cres16" path="res://Arts/ByteBounce.ttf" id="2_mewqi"]
-
-[sub_resource type="Animation" id="Animation_mewqi"]
-resource_name = "open"
-length = 0.3
-step = 0.1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Frame:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3),
-"transitions": PackedFloat32Array(0.307786, 1),
-"update": 0,
-"values": [Vector2(56, 750), Vector2(56, 481)]
-}
 
 [sub_resource type="Animation" id="Animation_6byeb"]
 length = 0.001
@@ -32,7 +16,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(56, 750)]
+"values": [Vector2(56, 481)]
 }
 
 [sub_resource type="Animation" id="Animation_xi45c"]
@@ -52,6 +36,23 @@ tracks/0/keys = {
 "values": [Vector2(56, 481), Vector2(56, 750)]
 }
 
+[sub_resource type="Animation" id="Animation_mewqi"]
+resource_name = "open"
+length = 0.3
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Frame:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(0.307786, 1),
+"update": 0,
+"values": [Vector2(56, 750), Vector2(56, 481)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_wi2ml"]
 _data = {
 &"RESET": SubResource("Animation_6byeb"),
@@ -66,6 +67,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_6byeb")
 
 [node name="Frame" type="NinePatchRect" parent="."]
 texture_filter = 1
@@ -75,9 +77,9 @@ anchor_left = 0.04375
 anchor_top = 0.668056
 anchor_right = 0.956469
 anchor_bottom = 0.988445
-offset_top = 269.0
+offset_top = -0.000335693
 offset_right = -0.280029
-offset_bottom = 269.32
+offset_bottom = 0.319641
 grow_horizontal = 2
 texture = ExtResource("1_f8kg0")
 patch_margin_left = 33
