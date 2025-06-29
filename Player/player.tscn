@@ -205,14 +205,14 @@ shape = SubResource("RectangleShape2D_btcbx")
 [node name="Up" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Up"]
-position = Vector2(0, -32)
+position = Vector2(0, -50)
 rotation = 1.57079
 shape = SubResource("RectangleShape2D_btcbx")
 
 [node name="Down" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Down"]
-position = Vector2(0, 32)
+position = Vector2(0, 50)
 rotation = 1.57079
 shape = SubResource("RectangleShape2D_btcbx")
 
