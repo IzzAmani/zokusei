@@ -4,7 +4,8 @@ extends Control
 
 var scene_text = {}
 var selected_text = []
-var is_running = false
+var in_progress = false
+var is_typing = false
 
 @onready var frame = $Frame
 @onready var textlabel = $Frame/Text
@@ -27,13 +28,15 @@ func load_em_text():
 func show_text():
     var text = selected_text.pop_front()
     await type_text(text)
+
     
 func type_text(text: String) -> void:
     for i in text.length():
         var current_text = text.substr(0, i + 1)
         textlabel.text = current_text
-        await get_tree().create_timer(.02).timeout
-    
+        $AudioStreamPlayer2D.play(0.15)
+        await get_tree().create_timer(.03).timeout
+        
 func next_line():
     if selected_text.size() > 0:
         show_text()
@@ -44,16 +47,16 @@ func finish():
     textlabel.text = ""
     get_tree().paused = false
     self.visible = false
-    is_running = false
+    in_progress = false
     
 
 func on_display_dialog(dialog):
-    if is_running:
+    if in_progress:
         next_line()
     else:
         get_tree().paused = true
         self.visible = true
-        is_running = true
+        in_progress = true
         selected_text = scene_text[dialog].duplicate()
         print(selected_text)
         show_text()
