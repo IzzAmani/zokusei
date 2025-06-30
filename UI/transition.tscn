@@ -2,7 +2,7 @@
 
 [sub_resource type="Animation" id="Animation_rhoid"]
 resource_name = "FadeIn"
-length = 0.5
+length = 0.333
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -10,7 +10,7 @@ tracks/0/path = NodePath("ColorRect:modulate")
 tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5),
+"times": PackedFloat32Array(0, 0.333),
 "transitions": PackedFloat32Array(0.4, 1),
 "update": 0,
 "values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
@@ -18,7 +18,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_inf52"]
 resource_name = "FadeOut"
-length = 0.5
+length = 0.333
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -26,7 +26,7 @@ tracks/0/path = NodePath("ColorRect:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5),
+"times": PackedFloat32Array(0, 0.333),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]

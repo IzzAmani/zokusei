@@ -46,7 +46,7 @@ func _ready() -> void:
     for door in get_tree().get_nodes_in_group("Doors") :
         door.change_room.connect(
             func (p_dir: Vector2) :
-                PlayerNode.speed = 0
+                PlayerNode.stop_move(true)
                 player_direction = p_dir
                 TransitionAnim.play("FadeIn")
                 
@@ -58,12 +58,12 @@ func _ready() -> void:
 
 func animation_finished(name: String) -> void :
     if name == "FadeIn" :
-        PlayerNode.position += player_direction * 64 * 5.5
+        PlayerNode.position += player_direction * 64 * 4.5
         change_camera(current_room)
         TransitionAnim.play("FadeOut")
     
     elif name == "FadeOut" :
-        PlayerNode.speed = 400
+        PlayerNode.stop_move(false)
     
     
 # For toggling fulll screen with F11

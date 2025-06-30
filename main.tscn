@@ -24,10 +24,10 @@ script = ExtResource("1_5vw27")
 [node name="MainMap" parent="Node2D" instance=ExtResource("2_h2yge")]
 
 [node name="Vines" parent="Node2D/MainMap" instance=ExtResource("3_kek77")]
-position = Vector2(896, 928)
+position = Vector2(1295, 917)
 attributes = {
 "Collision": true,
-"Flammable": false,
+"Flammable": true,
 "Prickly": true,
 "Size": 1
 }
@@ -42,7 +42,8 @@ position = Vector2(1088, 832)
 position = Vector2(1211, 583)
 
 [node name="Door" parent="Node2D/MainMap" instance=ExtResource("5_lquwl")]
-position = Vector2(896, 1056)
+z_index = 1
+position = Vector2(896, 1088)
 
 [node name="Chest" parent="Node2D/MainMap" instance=ExtResource("6_efxa6")]
 position = Vector2(704, 384)
@@ -57,24 +58,20 @@ dialog = "niga"
 [node name="RoomT" parent="Node2D" instance=ExtResource("9_vivmo")]
 position = Vector2(0, 1088)
 
-[node name="Door2" parent="Node2D/RoomT" instance=ExtResource("5_lquwl")]
-position = Vector2(896, 32)
-rotation = 3.14159
-
 [node name="Player" parent="Node2D" instance=ExtResource("2_1bvp3")]
 position = Vector2(896, 506)
 
 [node name="UI" type="CanvasLayer" parent="."]
 layer = 128
+offset = Vector2(-2480, 0)
+transform = Transform2D(1, 0, 0, 1, -2480, 0)
 
 [node name="Transition" parent="UI" instance=ExtResource("8_5vw27")]
-visible = false
 
 [node name="Tablet" parent="UI" instance=ExtResource("7_272bh")]
 visible = false
 
 [node name="HurtScr" parent="UI" instance=ExtResource("10_4c57u")]
-visible = false
 
 [node name="PauseMenu" parent="UI" instance=ExtResource("13_ycdy4")]
 visible = false
