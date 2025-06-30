@@ -75,8 +75,13 @@ func _physics_process(delta):
     for collision in get_slide_collision_count() :
         var collided_node = get_slide_collision(collision).get_collider().get_parent()
         
-        if collided_node.is_in_group("Vines") and collided_node.attributes["Prickly"] :
+        if collided_node.is_in_group("Vines") :
+            if collided_node.attributes["Prickly"] :
+                get_tree().root.get_node("Main/UI/HurtScr/ColorRect/AnimationPlayer").play("FadeOut")
+        
+        elif collided_node.is_in_group("Slimes") :
             get_tree().root.get_node("Main/UI/HurtScr/ColorRect/AnimationPlayer").play("FadeOut")
+            
             
     # For pushing crates idk
     if detected.body :

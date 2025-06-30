@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 GameManager="*res://gamemanager.gd"
 DialogManager="*res://dialogmanager.gd"
+GlobalVariables="*res://global_variables.gd"
 
 [display]
 

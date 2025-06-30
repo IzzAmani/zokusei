@@ -10,4 +10,4 @@ func _on_body_entered(player: Node2D) -> void :
     if player.name != "Player":
         return
         
-    emit_signal("change_room", Vector2(0, player.direction.y))
+    emit_signal("change_room", Vector2(player.direction.x, 0))

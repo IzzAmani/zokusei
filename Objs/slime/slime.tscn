@@ -1,42 +1,41 @@
-[gd_scene load_steps=5 format=3 uid="uid://p4ofdlqbeic3"]
+[gd_scene load_steps=5 format=3 uid="uid://vhthnoeoasmb"]
 
-[ext_resource type="Script" uid="uid://b42jofhaxq8oo" path="res://Objs/Vines/vines.gd" id="1_sipp2"]
-[ext_resource type="Texture2D" uid="uid://bpnordf4mqxva" path="res://Arts/Vines.png" id="2_ggffs"]
+[ext_resource type="Script" uid="uid://pnviiawc1u6q" path="res://Objs/slime/slime.gd" id="1_ko2bn"]
+[ext_resource type="Texture2D" uid="uid://cylcraghsmx7l" path="res://Arts/slime.png" id="1_sem50"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ggffs"]
-size = Vector2(146, 42)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ko2bn"]
+size = Vector2(64, 48)
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_ggffs"]
-radius = 128.0
+[sub_resource type="CircleShape2D" id="CircleShape2D_80xyc"]
+radius = 384.0
 
-[node name="Vines" type="Node2D"]
-script = ExtResource("1_sipp2")
+[node name="Slime" type="Node2D"]
+script = ExtResource("1_ko2bn")
 attributes = {
-"Collision": true,
-"Flammable": false,
-"Prickly": false
+"Hostile": true
 }
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
-texture = ExtResource("2_ggffs")
+position = Vector2(0, -8)
+texture = ExtResource("1_sem50")
 
 [node name="Hitbox" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
-position = Vector2(0, 11)
-shape = SubResource("RectangleShape2D_ggffs")
+shape = SubResource("RectangleShape2D_ko2bn")
 
 [node name="Area" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area"]
-position = Vector2(0, 11)
-shape = SubResource("RectangleShape2D_ggffs")
+shape = SubResource("RectangleShape2D_ko2bn")
 
 [node name="Range" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Range"]
-shape = SubResource("CircleShape2D_ggffs")
+shape = SubResource("CircleShape2D_80xyc")
+
+[node name="Timer" type="Timer" parent="."]
 
 [connection signal="mouse_entered" from="Area" to="." method="_on_area_mouse_entered"]
 [connection signal="mouse_exited" from="Area" to="." method="_on_area_mouse_exited"]
