@@ -1,65 +1,143 @@
-[gd_scene load_steps=16 format=3 uid="uid://ewsgd2ngo66o"]
+[gd_scene load_steps=28 format=3 uid="uid://ewsgd2ngo66o"]
 
 [ext_resource type="Script" uid="uid://b6timde5es2dd" path="res://main.gd" id="1_5vw27"]
-[ext_resource type="PackedScene" uid="uid://dvj115hs0rbmm" path="res://Objs/Tree/tree.tscn" id="1_h2yge"]
 [ext_resource type="PackedScene" uid="uid://bngmd4lnmsuap" path="res://Player/player.tscn" id="2_1bvp3"]
-[ext_resource type="PackedScene" uid="uid://y1tgouamybjn" path="res://Objs/Maps/main_map.tscn" id="2_h2yge"]
-[ext_resource type="PackedScene" uid="uid://p4ofdlqbeic3" path="res://Objs/Vines/vines.tscn" id="3_kek77"]
+[ext_resource type="PackedScene" uid="uid://y1tgouamybjn" path="res://Maps/main_map.tscn" id="2_h2yge"]
 [ext_resource type="PackedScene" uid="uid://bv86eny7wuba" path="res://Objs/Door/door.tscn" id="5_lquwl"]
-[ext_resource type="PackedScene" uid="uid://bm7ljwum4efuo" path="res://Objs/Sign/Sign.tscn" id="6_dg77c"]
 [ext_resource type="PackedScene" uid="uid://dkn0ar2k0xa43" path="res://Objs/Chest/chest.tscn" id="6_efxa6"]
 [ext_resource type="PackedScene" uid="uid://odbxyjyxgq2s" path="res://UI/tablet.tscn" id="7_272bh"]
-[ext_resource type="PackedScene" uid="uid://nrihmfkuds5b" path="res://Objs/Crate/crate.tscn" id="7_dg77c"]
+[ext_resource type="Texture2D" uid="uid://bm2b7rpc0db03" path="res://Arts/Shadow.png" id="7_lswn8"]
 [ext_resource type="PackedScene" uid="uid://cksc7v3fxbrvm" path="res://UI/transition.tscn" id="8_5vw27"]
-[ext_resource type="PackedScene" uid="uid://v0uttegcu8nm" path="res://Objs/Maps/room_t.tscn" id="9_vivmo"]
+[ext_resource type="PackedScene" uid="uid://v0uttegcu8nm" path="res://Maps/room_t.tscn" id="9_vivmo"]
 [ext_resource type="PackedScene" uid="uid://kfm8up4pp76l" path="res://UI/hurt_scr.tscn" id="10_4c57u"]
+[ext_resource type="PackedScene" uid="uid://ci8koccjsex8j" path="res://Objs/Door/door90.tscn" id="10_qsp4k"]
+[ext_resource type="PackedScene" uid="uid://du21317um8nvd" path="res://Maps/room_1.tscn" id="11_2cqfq"]
 [ext_resource type="PackedScene" uid="uid://dq6ypijb7n57a" path="res://UI/dialog.tscn" id="11_efxa6"]
+[ext_resource type="PackedScene" uid="uid://bdh0pk8rscop6" path="res://Maps/room_1A.tscn" id="12_yaehf"]
+[ext_resource type="PackedScene" uid="uid://cniv4o4fsgwsd" path="res://Maps/room_2.tscn" id="13_82xsv"]
 [ext_resource type="PackedScene" uid="uid://ctslhh8ubu2ps" path="res://Scene/pause_menu.tscn" id="13_ycdy4"]
+[ext_resource type="PackedScene" uid="uid://bg8nudo7oysf1" path="res://Maps/room_3.tscn" id="14_getpj"]
+[ext_resource type="PackedScene" uid="uid://bvgohg2y5365e" path="res://Maps/room_3A.tscn" id="15_ryguw"]
+[ext_resource type="PackedScene" uid="uid://dos43jnsyv7s6" path="res://Maps/room_3B.tscn" id="16_getpj"]
+[ext_resource type="PackedScene" uid="uid://by6v12t3dx81w" path="res://Maps/room_3Bb.tscn" id="17_d13ii"]
+[ext_resource type="PackedScene" uid="uid://cjgy00c4c6v20" path="res://Maps/room_4.tscn" id="17_ryguw"]
+[ext_resource type="PackedScene" uid="uid://d01utwu67w8x" path="res://room_E.tscn" id="19_xuqvo"]
+[ext_resource type="PackedScene" uid="uid://dw3qm24qrb5j8" path="res://Maps/room_1B.tscn" id="24_1u8w0"]
+[ext_resource type="PackedScene" uid="uid://qqecsea6epv" path="res://Maps/room_4A.tscn" id="25_0odxb"]
+[ext_resource type="PackedScene" uid="uid://cwe4k3rh6pom4" path="res://Maps/room_EA.tscn" id="25_kq58d"]
+[ext_resource type="PackedScene" uid="uid://dqc1iayaxdgtr" path="res://Maps/room_4B.tscn" id="27_qsp4k"]
+[ext_resource type="PackedScene" uid="uid://nq1im13tgjvf" path="res://Maps/room_5.tscn" id="28_kq58d"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_5vw27")
 
 [node name="Node2D" type="Node2D" parent="."]
+y_sort_enabled = true
 
 [node name="MainMap" parent="Node2D" instance=ExtResource("2_h2yge")]
+position = Vector2(1, 0)
 
-[node name="Vines" parent="Node2D/MainMap" instance=ExtResource("3_kek77")]
-position = Vector2(1295, 917)
-attributes = {
-"Collision": true,
-"Flammable": true,
-"Prickly": true,
-"Size": 1
-}
-
-[node name="Vines2" parent="Node2D/MainMap" instance=ExtResource("3_kek77")]
-position = Vector2(640, 832)
-
-[node name="Vines3" parent="Node2D/MainMap" instance=ExtResource("3_kek77")]
-position = Vector2(1088, 832)
-
-[node name="Tree" parent="Node2D/MainMap" instance=ExtResource("1_h2yge")]
-position = Vector2(1211, 583)
-
-[node name="Door" parent="Node2D/MainMap" instance=ExtResource("5_lquwl")]
-z_index = 1
-position = Vector2(896, 1088)
-
-[node name="Chest" parent="Node2D/MainMap" instance=ExtResource("6_efxa6")]
-position = Vector2(704, 384)
-
-[node name="Crate" parent="Node2D/MainMap" instance=ExtResource("7_dg77c")]
-position = Vector2(1216, 320)
-
-[node name="Sign" parent="Node2D/MainMap" instance=ExtResource("6_dg77c")]
-position = Vector2(896, 299)
-dialog = "niga"
+[node name="Door2" parent="Node2D/MainMap" instance=ExtResource("5_lquwl")]
+position = Vector2(704, 896)
 
 [node name="RoomT" parent="Node2D" instance=ExtResource("9_vivmo")]
-position = Vector2(0, 1088)
+position = Vector2(1, 896)
+
+[node name="Door" parent="Node2D/RoomT" instance=ExtResource("10_qsp4k")]
+position = Vector2(1408, 447)
+
+[node name="Chest" parent="Node2D" instance=ExtResource("6_efxa6")]
+y_sort_enabled = false
+position = Vector2(739, 192)
+items = {
+"name": "Tablet",
+"texture": "res://Arts/TabletItem.png"
+}
 
 [node name="Player" parent="Node2D" instance=ExtResource("2_1bvp3")]
-position = Vector2(896, 506)
+position = Vector2(707, 512)
+
+[node name="Shadow" type="Sprite2D" parent="Node2D/Player"]
+position = Vector2(0, 25)
+texture = ExtResource("7_lswn8")
+
+[node name="room1" parent="Node2D" instance=ExtResource("11_2cqfq")]
+position = Vector2(1409, 896)
+
+[node name="Door" parent="Node2D/room1" instance=ExtResource("5_lquwl")]
+position = Vector2(704, 896)
+
+[node name="Door2" parent="Node2D/room1" instance=ExtResource("10_qsp4k")]
+position = Vector2(1408, 447)
+
+[node name="room1A" parent="Node2D" instance=ExtResource("12_yaehf")]
+position = Vector2(2817, 896)
+
+[node name="Door" parent="Node2D/room1A" instance=ExtResource("10_qsp4k")]
+position = Vector2(1408, 447)
+
+[node name="room1B" parent="Node2D" instance=ExtResource("24_1u8w0")]
+position = Vector2(1409, 1792)
+
+[node name="room2" parent="Node2D" instance=ExtResource("13_82xsv")]
+position = Vector2(4225, 896)
+
+[node name="Door" parent="Node2D/room2" instance=ExtResource("5_lquwl")]
+position = Vector2(704, 0)
+
+[node name="room3" parent="Node2D" instance=ExtResource("14_getpj")]
+position = Vector2(4225, 0)
+
+[node name="Door" parent="Node2D/room3" instance=ExtResource("10_qsp4k")]
+position = Vector2(1408, 447)
+
+[node name="room3A" parent="Node2D" instance=ExtResource("15_ryguw")]
+position = Vector2(5633, 0)
+
+[node name="Door" parent="Node2D/room3A" instance=ExtResource("10_qsp4k")]
+position = Vector2(1408, 447)
+
+[node name="room3B" parent="Node2D" instance=ExtResource("16_getpj")]
+position = Vector2(2817, 0)
+
+[node name="Door2" parent="Node2D/room3B" instance=ExtResource("5_lquwl")]
+position = Vector2(704, 0)
+
+[node name="Door" parent="Node2D/room3B" instance=ExtResource("10_qsp4k")]
+position = Vector2(1408, 447)
+
+[node name="room3Bb" parent="Node2D" instance=ExtResource("17_d13ii")]
+position = Vector2(2817, -896)
+
+[node name="room4" parent="Node2D" instance=ExtResource("17_ryguw")]
+position = Vector2(7041, 0)
+
+[node name="Door" parent="Node2D/room4" instance=ExtResource("10_qsp4k")]
+position = Vector2(1408, 447)
+
+[node name="room4A" parent="Node2D" instance=ExtResource("25_0odxb")]
+position = Vector2(8449, 0)
+
+[node name="Door2" parent="Node2D/room4A" instance=ExtResource("5_lquwl")]
+position = Vector2(-704, 896)
+
+[node name="room_4B" parent="Node2D" instance=ExtResource("27_qsp4k")]
+position = Vector2(7041, 896)
+
+[node name="room5" parent="Node2D" instance=ExtResource("28_kq58d")]
+position = Vector2(7041, 1792)
+
+[node name="Door2" parent="Node2D/room5" instance=ExtResource("5_lquwl")]
+position = Vector2(704, 0)
+
+[node name="Door" parent="Node2D/room5" instance=ExtResource("10_qsp4k")]
+position = Vector2(0, 447)
+
+[node name="roomE" parent="Node2D" instance=ExtResource("19_xuqvo")]
+position = Vector2(5633, 1792)
+
+[node name="roomEA" parent="Node2D" instance=ExtResource("25_kq58d")]
+position = Vector2(5633, 896)
 
 [node name="UI" type="CanvasLayer" parent="."]
 layer = 128
@@ -78,3 +156,6 @@ visible = false
 
 [node name="Dialog" parent="UI" instance=ExtResource("11_efxa6")]
 scene_text_file = "res://dialog.json"
+
+[node name="Door" parent="." instance=ExtResource("5_lquwl")]
+position = Vector2(6337, 1792)

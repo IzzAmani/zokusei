@@ -7,5 +7,20 @@
     ],
     "yes": [
         "ok"
+    ],
+    "chest": [
+        "Left-click the chest to open it."  
+    ],
+    "double-check": [
+        "Are you sure you have explore everything in the first room?"  
+    ],
+    "tutorial": [
+        "See the boulder to the right of this sign?",
+        "You can access it's property by left-clicking it.",
+        "Try disabling it's collision property.",
+        "After that, figure out a way to get to the next room!"
+    ],
+    "tablet_unavailable": [
+        "You do not have a tablet to manipulate this object!"
     ]
 }

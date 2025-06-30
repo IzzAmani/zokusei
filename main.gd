@@ -35,6 +35,10 @@ func _ready() -> void:
     for object in get_tree().get_nodes_in_group("Objects") :
         object.toggle_tablet.connect(
             func (show: bool) :
+                if !GlobalVariables.items_acquired["Tablet"] :
+                    #DialogManager.emit_signal("display_dialog", "tablet_unavailable")
+                    return
+                    
                 TabletNode.visible = show    
                 update_tablet_scr(object, show)
         )

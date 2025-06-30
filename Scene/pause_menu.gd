@@ -28,8 +28,13 @@ func _on_anim_animation_finished(anim_name: StringName) -> void:
 
 
 func _input(evt):
-    if evt.is_action_pressed("pauseMenu") and !animation_playing:
-        show_menu(!get_tree().paused)
+    var tablet_node = $"../Tablet"
+    if evt.is_action_pressed("pauseMenu") :
+        if tablet_node.visible :
+            tablet_node.visible = false
+        
+        elif !animation_playing :
+            show_menu(!get_tree().paused)
 
 
 func _on_resume_pressed() -> void:
