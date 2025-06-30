@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://ewsgd2ngo66o"]
+[gd_scene load_steps=17 format=3 uid="uid://ewsgd2ngo66o"]
 
 [ext_resource type="Script" uid="uid://b6timde5es2dd" path="res://main.gd" id="1_5vw27"]
 [ext_resource type="PackedScene" uid="uid://dvj115hs0rbmm" path="res://Objs/Tree/tree.tscn" id="1_h2yge"]
@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://kfm8up4pp76l" path="res://UI/hurt_scr.tscn" id="10_4c57u"]
 [ext_resource type="PackedScene" uid="uid://dq6ypijb7n57a" path="res://UI/dialog.tscn" id="11_efxa6"]
 [ext_resource type="PackedScene" uid="uid://ctslhh8ubu2ps" path="res://Scene/pause_menu.tscn" id="13_ycdy4"]
+[ext_resource type="PackedScene" uid="uid://b6gpmbtn2e8yh" path="res://UI/PlayerUI.tscn" id="16_2cqfq"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_5vw27")
@@ -66,6 +67,8 @@ position = Vector2(896, 506)
 [node name="UI" type="CanvasLayer" parent="."]
 layer = 128
 
+[node name="PlayerUI" parent="UI" instance=ExtResource("16_2cqfq")]
+
 [node name="Transition" parent="UI" instance=ExtResource("8_5vw27")]
 visible = false
 
@@ -80,3 +83,7 @@ visible = false
 
 [node name="Dialog" parent="UI" instance=ExtResource("11_efxa6")]
 scene_text_file = "res://dialog.json"
+
+[node name="Sign" parent="." instance=ExtResource("6_dg77c")]
+position = Vector2(212, 1979)
+dialog = "yes"
