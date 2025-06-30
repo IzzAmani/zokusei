@@ -1,10 +1,11 @@
-[gd_scene load_steps=28 format=3 uid="uid://ewsgd2ngo66o"]
+[gd_scene load_steps=31 format=4 uid="uid://ewsgd2ngo66o"]
 
 [ext_resource type="Script" uid="uid://b6timde5es2dd" path="res://main.gd" id="1_5vw27"]
 [ext_resource type="PackedScene" uid="uid://bngmd4lnmsuap" path="res://Player/player.tscn" id="2_1bvp3"]
 [ext_resource type="PackedScene" uid="uid://y1tgouamybjn" path="res://Maps/main_map.tscn" id="2_h2yge"]
 [ext_resource type="PackedScene" uid="uid://bv86eny7wuba" path="res://Objs/Door/door.tscn" id="5_lquwl"]
 [ext_resource type="PackedScene" uid="uid://dkn0ar2k0xa43" path="res://Objs/Chest/chest.tscn" id="6_efxa6"]
+[ext_resource type="PackedScene" uid="uid://bm7ljwum4efuo" path="res://Objs/Sign/Sign.tscn" id="6_xuqvo"]
 [ext_resource type="PackedScene" uid="uid://odbxyjyxgq2s" path="res://UI/tablet.tscn" id="7_272bh"]
 [ext_resource type="Texture2D" uid="uid://bm2b7rpc0db03" path="res://Arts/Shadow.png" id="7_lswn8"]
 [ext_resource type="PackedScene" uid="uid://cksc7v3fxbrvm" path="res://UI/transition.tscn" id="8_5vw27"]
@@ -13,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://ci8koccjsex8j" path="res://Objs/Door/door90.tscn" id="10_qsp4k"]
 [ext_resource type="PackedScene" uid="uid://du21317um8nvd" path="res://Maps/room_1.tscn" id="11_2cqfq"]
 [ext_resource type="PackedScene" uid="uid://dq6ypijb7n57a" path="res://UI/dialog.tscn" id="11_efxa6"]
+[ext_resource type="PackedScene" uid="uid://r3gu3lrvbieq" path="res://Objs/Boulder/boulder.tscn" id="11_qsp4k"]
 [ext_resource type="PackedScene" uid="uid://bdh0pk8rscop6" path="res://Maps/room_1A.tscn" id="12_yaehf"]
 [ext_resource type="PackedScene" uid="uid://cniv4o4fsgwsd" path="res://Maps/room_2.tscn" id="13_82xsv"]
 [ext_resource type="PackedScene" uid="uid://ctslhh8ubu2ps" path="res://Scene/pause_menu.tscn" id="13_ycdy4"]
@@ -22,6 +24,7 @@
 [ext_resource type="PackedScene" uid="uid://by6v12t3dx81w" path="res://Maps/room_3Bb.tscn" id="17_d13ii"]
 [ext_resource type="PackedScene" uid="uid://cjgy00c4c6v20" path="res://Maps/room_4.tscn" id="17_ryguw"]
 [ext_resource type="PackedScene" uid="uid://d01utwu67w8x" path="res://room_E.tscn" id="19_xuqvo"]
+[ext_resource type="PackedScene" uid="uid://cojb558he4q2r" path="res://Objs/bush/bush.tscn" id="23_xuqvo"]
 [ext_resource type="PackedScene" uid="uid://dw3qm24qrb5j8" path="res://Maps/room_1B.tscn" id="24_1u8w0"]
 [ext_resource type="PackedScene" uid="uid://qqecsea6epv" path="res://Maps/room_4A.tscn" id="25_0odxb"]
 [ext_resource type="PackedScene" uid="uid://cwe4k3rh6pom4" path="res://Maps/room_EA.tscn" id="25_kq58d"]
@@ -76,6 +79,28 @@ position = Vector2(2817, 896)
 [node name="Door" parent="Node2D/room1A" instance=ExtResource("10_qsp4k")]
 position = Vector2(1408, 447)
 
+[node name="Boulder" parent="Node2D/room1A" instance=ExtResource("11_qsp4k")]
+position = Vector2(334, 556)
+
+[node name="Boulder2" parent="Node2D/room1A" instance=ExtResource("11_qsp4k")]
+position = Vector2(465, 179)
+
+[node name="Boulder5" parent="Node2D/room1A" instance=ExtResource("11_qsp4k")]
+position = Vector2(694, 588)
+
+[node name="Boulder6" parent="Node2D/room1A" instance=ExtResource("11_qsp4k")]
+position = Vector2(694, 360)
+
+[node name="Boulder3" parent="Node2D/room1A" instance=ExtResource("11_qsp4k")]
+position = Vector2(1014, 352)
+
+[node name="Boulder4" parent="Node2D/room1A" instance=ExtResource("11_qsp4k")]
+position = Vector2(1014, 352)
+
+[node name="Sign" parent="Node2D/room1A" instance=ExtResource("6_xuqvo")]
+position = Vector2(569, 758)
+dialog = "prank"
+
 [node name="room1B" parent="Node2D" instance=ExtResource("24_1u8w0")]
 position = Vector2(1409, 1792)
 
@@ -87,6 +112,7 @@ position = Vector2(704, 0)
 
 [node name="room3" parent="Node2D" instance=ExtResource("14_getpj")]
 position = Vector2(4225, 0)
+tile_map_data = PackedByteArray("AAAAAAAAAQABAAUAAAAAAAEAAQABAAUAAAAAAAIAAQABAAUAAAAAAAMAAQABAAUAAAAAAAQAAQABAAUAAAABAAAAAQABAAUAAAABAAEAAQAAAAQAAAABAAIAAQAAAAUAAAABAAMAAQAAAAUAAAABAAQAAQAAAAUAAAACAAAAAQABAAUAAAACAAEAAQABAAQAAAACAAIAAQAIAAMAAAACAAMAAQAIAAAAAAACAAQAAQAIAAAAAAADAAAAAQABAAUAAAADAAEAAQABAAQAAAADAAIAAQAFAAEAAAADAAMAAQAIAAEAAAADAAQAAQAJAAEAAAAEAAAAAQABAAUAAAAEAAEAAQABAAQAAAAEAAIAAQAFAAEAAAAEAAMAAQAFAAEAAAAEAAQAAQAIAAAAAAAFAAAAAQABAAUAAAAFAAEAAQABAAQAAAAFAAIAAQAFAAEAAAAFAAMAAQAFAAEAAAAFAAQAAQAFAAEAAAAGAAAAAQABAAUAAAAGAAEAAQABAAQAAAAGAAIAAQAFAAEAAAAGAAMAAQAJAAMAAAAGAAQAAQAFAAEAAAAHAAAAAQABAAUAAAAHAAEAAQABAAQAAAAHAAIAAQAFAAEAAAAHAAMAAQAFAAEAAAAHAAQAAQAJAAEAAAAIAAAAAQABAAUAAAAIAAEAAQABAAQAAAAIAAIAAQAJAAMAAAAIAAMAAQAIAAAAAAAIAAQAAQAJAAAAAAAJAAAAAQABAAUAAAAJAAEAAQABAAQAAAAJAAIAAQAFAAEAAAAJAAMAAQAFAAEAAAAJAAQAAQAIAAIAAAAKAAAAAQABAAUAAAAKAAEAAQABAAQAAAAKAAIAAQAJAAMAAAAKAAMAAQAJAAMAAAAKAAQAAQAFAAEAAAALAAAAAQABAAUAAAALAAEAAQABAAQAAAALAAIAAQAFAAEAAAALAAMAAQAFAAEAAAALAAQAAQAFAAEAAAAMAAAAAQABAAUAAAAMAAEAAQABAAQAAAAMAAIAAQAFAAEAAAAMAAMAAQAFAAEAAAAMAAQAAQAFAAEAAAANAAAAAQABAAUAAAANAAEAAQABAAQAAAANAAIAAQAFAAEAAAANAAMAAQAFAAEAAAANAAQAAQAIAAAAAAAOAAAAAQABAAUAAAAOAAEAAQABAAQAAAAOAAIAAQAFAAEAAAAOAAMAAQAFAAEAAAAOAAQAAQAJAAIAAAAPAAAAAQABAAUAAAAPAAEAAQABAAQAAAAPAAIAAQAFAAEAAAAPAAMAAQAFAAEAAAAPAAQAAQAFAAEAAAAQAAAAAQABAAUAAAAQAAEAAQABAAQAAAAQAAIAAQAFAAEAAAAQAAMAAQAFAAEAAAAQAAQAAQAIAAIAAAARAAAAAQABAAUAAAARAAEAAQABAAQAAAARAAIAAQAFAAEAAAARAAMAAQAJAAAAAAARAAQAAQAFAAEAAAASAAAAAQABAAUAAAASAAEAAQABAAQAAAASAAIAAQAIAAEAAAASAAMAAQAFAAEAAAASAAQAAQAFAAEAAAATAAAAAQABAAUAAAATAAEAAQABAAQAAAATAAIAAQAFAAEAAAATAAMAAQAJAAMAAAATAAQAAQAIAAEAAAAUAAAAAQABAAUAAAAUAAEAAQACAAQAAAAUAAIAAQACAAUAAAAUAAMAAQACAAUAAAAUAAQAAQACAAUAAAAVAAAAAQABAAUAAAAVAAEAAQABAAUAAAAVAAIAAQABAAUAAAAVAAMAAQABAAUAAAAVAAQAAQABAAUAAAAAAAUAAQABAAUAAAAAAAYAAQABAAUAAAAAAAcAAQABAAUAAAAAAAoAAQABAAUAAAAAAAsAAQABAAUAAAAAAAwAAQABAAUAAAAAAA0AAQABAAUAAAABAAUAAQAAAAUAAAABAAYAAQAAAAUAAAABAAcAAQAAAAUAAAABAAgAAQAAAAUAAAABAAkAAQAAAAUAAAABAAoAAQAAAAUAAAABAAsAAQAAAAUAAAABAAwAAQAAAAYAAAABAA0AAQABAAUAAAACAAUAAQAFAAEAAAACAAYAAQAIAAEAAAACAAcAAQAFAAEAAAACAAgAAQAFAAEAAAACAAkAAQAFAAEAAAACAAoAAQAFAAEAAAACAAsAAQAJAAAAAAACAAwAAQABAAYAAAACAA0AAQABAAUAAAADAAUAAQAJAAAAAAADAAYAAQAFAAEAAAADAAcAAQAFAAEAAAADAAgAAQAFAAEAAAADAAkAAQAFAAEAAAADAAoAAQAIAAIAAAADAAsAAQAFAAEAAAADAAwAAQABAAYAAAADAA0AAQABAAUAAAAEAAUAAQAFAAEAAAAEAAYAAQAFAAEAAAAEAAcAAQAFAAEAAAAEAAgAAQAFAAEAAAAEAAkAAQAFAAEAAAAEAAoAAQAFAAEAAAAEAAsAAQAFAAEAAAAEAAwAAQABAAYAAAAEAA0AAQABAAUAAAAFAAUAAQAFAAEAAAAFAAYAAQAIAAAAAAAFAAcAAQAFAAEAAAAFAAgAAQAFAAEAAAAFAAkAAQAFAAEAAAAFAAoAAQAFAAEAAAAFAAsAAQAIAAIAAAAFAAwAAQABAAYAAAAFAA0AAQABAAUAAAAGAAUAAQAFAAEAAAAGAAYAAQAJAAAAAAAGAAcAAQAJAAEAAAAGAAgAAQAJAAEAAAAGAAkAAQAIAAEAAAAGAAoAAQAFAAEAAAAGAAsAAQAJAAMAAAAGAAwAAQABAAYAAAAGAA0AAQABAAUAAAAHAAUAAQAIAAAAAAAHAAYAAQAIAAMAAAAHAAcAAQAJAAIAAAAHAAgAAQAFAAEAAAAHAAkAAQAFAAEAAAAHAAoAAQAJAAMAAAAHAAsAAQAFAAEAAAAHAAwAAQABAAYAAAAHAA0AAQABAAUAAAAIAAUAAQAFAAEAAAAIAAYAAQAIAAMAAAAIAAcAAQAFAAEAAAAIAAgAAQAIAAEAAAAIAAkAAQAJAAMAAAAIAAoAAQAFAAEAAAAIAAsAAQAFAAEAAAAIAAwAAQABAAYAAAAIAA0AAQABAAUAAAAJAAUAAQAFAAEAAAAJAAYAAQAJAAAAAAAJAAcAAQAFAAEAAAAJAAgAAQAFAAEAAAAJAAkAAQAFAAEAAAAJAAoAAQAFAAEAAAAJAAsAAQAFAAEAAAAJAAwAAQAGAAQAAAAJAA0AAQAAAAUAAAAKAAUAAQAFAAEAAAAKAAYAAQAJAAAAAAAKAAcAAQAJAAAAAAAKAAgAAQAJAAIAAAAKAAkAAQAFAAEAAAAKAAoAAQAFAAEAAAAKAAsAAQAJAAMAAAAKAAwAAAADAAEAAAAKAA0AAAADAAEAAAALAAUAAQAJAAMAAAALAAYAAQAFAAEAAAALAAcAAQAJAAMAAAALAAgAAQAFAAEAAAALAAkAAQAFAAEAAAALAAoAAQAFAAEAAAALAAsAAQAFAAEAAAALAAwAAAADAAEAAAALAA0AAAADAAEAAAAMAAUAAQAFAAEAAAAMAAYAAQAFAAEAAAAMAAcAAQAFAAEAAAAMAAgAAQAFAAEAAAAMAAkAAQAFAAEAAAAMAAoAAQAIAAEAAAAMAAsAAQAFAAEAAAAMAAwAAQAEAAQAAAAMAA0AAQAEAAUAAAANAAUAAQAJAAEAAAANAAYAAQAFAAEAAAANAAcAAQAFAAEAAAANAAgAAQAIAAEAAAANAAkAAQAFAAEAAAANAAoAAQAFAAEAAAANAAsAAQAFAAEAAAANAAwAAQABAAYAAAANAA0AAQABAAUAAAAOAAUAAQAJAAMAAAAOAAYAAQAJAAAAAAAOAAcAAQAFAAEAAAAOAAgAAQAIAAEAAAAOAAkAAQAIAAIAAAAOAAoAAQAFAAEAAAAOAAsAAQAFAAEAAAAOAAwAAQABAAYAAAAOAA0AAQABAAUAAAAPAAUAAQAIAAEAAAAPAAYAAQAFAAEAAAAPAAcAAQAFAAEAAAAPAAgAAQAFAAEAAAAPAAkAAQAIAAMAAAAPAAoAAQAFAAEAAAAPAAsAAQAFAAEAAAAPAAwAAQABAAYAAAAPAA0AAQABAAUAAAAQAAUAAQAFAAEAAAAQAAYAAQAFAAEAAAAQAAcAAQAFAAEAAAAQAAgAAQAFAAEAAAAQAAkAAQAIAAMAAAAQAAoAAQAIAAIAAAAQAAsAAQAFAAEAAAAQAAwAAQABAAYAAAAQAA0AAQABAAUAAAARAAUAAQAFAAEAAAARAAYAAQAFAAEAAAARAAcAAQAFAAEAAAARAAgAAQAIAAAAAAARAAkAAQAFAAEAAAARAAoAAQAFAAEAAAARAAsAAQAFAAEAAAARAAwAAQABAAYAAAARAA0AAQABAAUAAAASAAUAAQAFAAEAAAASAAYAAQAFAAEAAAASAAcAAQAFAAEAAAASAAgAAQAFAAEAAAASAAkAAQAFAAEAAAASAAoAAQAFAAEAAAASAAsAAQAFAAEAAAASAAwAAQABAAYAAAASAA0AAQABAAUAAAATAAUAAQAIAAEAAAATAAYAAQAFAAEAAAATAAcAAQAFAAEAAAATAAgAAQAFAAEAAAATAAkAAQAFAAEAAAATAAoAAQAFAAEAAAATAAsAAQAFAAEAAAATAAwAAQABAAYAAAATAA0AAQABAAUAAAAUAAUAAQACAAUAAAAUAAYAAQACAAUAAAAUAAcAAQACAAUAAAAUAAgAAQACAAUAAAAUAAkAAQACAAUAAAAUAAoAAQACAAUAAAAUAAsAAQACAAUAAAAUAAwAAQACAAYAAAAUAA0AAQABAAUAAAAVAAUAAQABAAUAAAAVAAYAAQABAAUAAAAVAAcAAQABAAUAAAAVAAgAAQABAAUAAAAVAAkAAQABAAUAAAAVAAoAAQABAAUAAAAVAAsAAQABAAUAAAAVAAwAAQABAAUAAAAVAA0AAQABAAUAAAAAAAgAAQABAAUAAAAAAAkAAQABAAUAAAA=")
 
 [node name="Door" parent="Node2D/room3" instance=ExtResource("10_qsp4k")]
 position = Vector2(1408, 447)
@@ -138,6 +164,106 @@ position = Vector2(5633, 1792)
 
 [node name="roomEA" parent="Node2D" instance=ExtResource("25_kq58d")]
 position = Vector2(5633, 896)
+
+[node name="Node2D" parent="Node2D" instance=ExtResource("23_xuqvo")]
+position = Vector2(397, 720)
+scale = Vector2(2, 2)
+
+[node name="Node2D2" parent="Node2D" instance=ExtResource("23_xuqvo")]
+position = Vector2(1837, 1139)
+scale = Vector2(2, 2)
+
+[node name="Node2D7" parent="Node2D" instance=ExtResource("23_xuqvo")]
+position = Vector2(3151, 1248)
+scale = Vector2(2, 2)
+
+[node name="Node2D8" parent="Node2D" instance=ExtResource("23_xuqvo")]
+position = Vector2(3151, 1376)
+scale = Vector2(2, 2)
+
+[node name="Node2D9" parent="Node2D" instance=ExtResource("23_xuqvo")]
+position = Vector2(3410, 1049)
+scale = Vector2(2, 2)
+
+[node name="Node2D15" parent="Node2D" instance=ExtResource("23_xuqvo")]
+position = Vector2(3151, 1120)
+scale = Vector2(2, 2)
+
+[node name="Node2D10" parent="Node2D" instance=ExtResource("23_xuqvo")]
+position = Vector2(3410, 1184)
+scale = Vector2(2, 2)
+
+[node name="Node2D16" parent="Node2D" instance=ExtResource("23_xuqvo")]
+position = Vector2(3537, 1120)
+scale = Vector2(2, 2)
+
+[node name="Node2D17" parent="Node2D" instance=ExtResource("23_xuqvo")]
+position = Vector2(3664, 1120)
+scale = Vector2(2, 2)
+
+[node name="Node2D18" parent="Node2D" instance=ExtResource("23_xuqvo")]
+position = Vector2(3615, 1248)
+scale = Vector2(2, 2)
+
+[node name="Node2D21" parent="Node2D" instance=ExtResource("23_xuqvo")]
+position = Vector2(3738, 1248)
+scale = Vector2(2, 2)
+
+[node name="Node2D22" parent="Node2D" instance=ExtResource("23_xuqvo")]
+position = Vector2(3738, 1504)
+scale = Vector2(2, 2)
+
+[node name="Node2D23" parent="Node2D" instance=ExtResource("23_xuqvo")]
+position = Vector2(3856, 1504)
+scale = Vector2(2, 2)
+
+[node name="Node2D24" parent="Node2D" instance=ExtResource("23_xuqvo")]
+position = Vector2(3920, 1388)
+scale = Vector2(2, 2)
+
+[node name="Node2D25" parent="Node2D" instance=ExtResource("23_xuqvo")]
+position = Vector2(3920, 1273)
+scale = Vector2(2, 2)
+
+[node name="Node2D19" parent="Node2D" instance=ExtResource("23_xuqvo")]
+position = Vector2(3615, 1636)
+scale = Vector2(2, 2)
+
+[node name="Node2D20" parent="Node2D" instance=ExtResource("23_xuqvo")]
+position = Vector2(3615, 1504)
+scale = Vector2(2, 2)
+
+[node name="Node2D11" parent="Node2D" instance=ExtResource("23_xuqvo")]
+position = Vector2(3410, 1440)
+scale = Vector2(2, 2)
+
+[node name="Node2D12" parent="Node2D" instance=ExtResource("23_xuqvo")]
+position = Vector2(3151, 1619)
+scale = Vector2(2, 2)
+
+[node name="Node2D13" parent="Node2D" instance=ExtResource("23_xuqvo")]
+position = Vector2(3282, 1619)
+scale = Vector2(2, 2)
+
+[node name="Node2D14" parent="Node2D" instance=ExtResource("23_xuqvo")]
+position = Vector2(3410, 1560)
+scale = Vector2(2, 2)
+
+[node name="Node2D3" parent="Node2D" instance=ExtResource("23_xuqvo")]
+position = Vector2(2392, 1139)
+scale = Vector2(2, 2)
+
+[node name="Node2D4" parent="Node2D" instance=ExtResource("23_xuqvo")]
+position = Vector2(1837, 1536)
+scale = Vector2(2, 2)
+
+[node name="Node2D5" parent="Node2D" instance=ExtResource("23_xuqvo")]
+position = Vector2(2392, 1536)
+scale = Vector2(2, 2)
+
+[node name="Node2D6" parent="Node2D" instance=ExtResource("23_xuqvo")]
+position = Vector2(2392, 1536)
+scale = Vector2(2, 2)
 
 [node name="UI" type="CanvasLayer" parent="."]
 layer = 128

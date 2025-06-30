@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://cojb558he4q2r"]
+
+[ext_resource type="Texture2D" uid="uid://8f1mqff82pn" path="res://Arts/bush.png" id="1_e2pf7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ue07n"]
+size = Vector2(58, 58)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+texture_filter = 1
+shape = SubResource("RectangleShape2D_ue07n")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_e2pf7")

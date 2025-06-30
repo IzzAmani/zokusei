@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=4 uid="uid://y1tgouamybjn"]
+[gd_scene load_steps=9 format=4 uid="uid://y1tgouamybjn"]
 
 [ext_resource type="Texture2D" uid="uid://ds52ukl8d7gqi" path="res://Arts/PathTilesSmaller.png" id="1_aqd6m"]
 [ext_resource type="Texture2D" uid="uid://dv8qr6s7ah513" path="res://Arts/FinalTiles.png" id="2_i2wjg"]
 [ext_resource type="PackedScene" uid="uid://r3gu3lrvbieq" path="res://Objs/Boulder/boulder.tscn" id="3_acmjk"]
 [ext_resource type="PackedScene" uid="uid://bm7ljwum4efuo" path="res://Objs/Sign/Sign.tscn" id="4_acmjk"]
+[ext_resource type="PackedScene" uid="uid://vhthnoeoasmb" path="res://Objs/slime/slime.tscn" id="5_vv64y"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vqaso"]
 texture = ExtResource("1_aqd6m")
@@ -130,3 +131,6 @@ position = Vector2(832, 392)
 [node name="Sign" parent="." instance=ExtResource("4_acmjk")]
 position = Vector2(674, 199)
 dialog = "chest"
+
+[node name="Slime" parent="." instance=ExtResource("5_vv64y")]
+position = Vector2(256, 231)

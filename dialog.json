@@ -22,5 +22,24 @@
     ],
     "tablet_unavailable": [
         "You do not have a tablet to manipulate this object!"
+    ],
+    "new-script": [
+        "Scripts are scattered in the dungeon.",
+        "Collect them to unlock the ability to edit certain properties.",
+        "Now you can make the vine burnable!"
+    ],
+    "torch" : [
+        "Congratulations",
+        "You just acquire a torch",
+        "Right click to burn object using it."
+    ]
+    "sorry" : [
+        "We are sorry for the lack of features.",
+        "We will add more features in the future update.",
+        "Stay tune!!!"
+    ],
+    "prank" : [
+        "Got you.",
+        "Nothing is here lol :D."
     ]
 }

@@ -97,6 +97,9 @@ func update_tablet_scr(object, show) -> void :
     for attr_key in object.attributes :
         var attr_value = object.attributes[attr_key]
         
+        if !GlobalVariables.items_acquired[attr_key] :
+            return
+        
         var new_attr = VBoxContainer.new()
         var attr_label = Label.new()
         var attr_input: Node

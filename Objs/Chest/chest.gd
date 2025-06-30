@@ -77,7 +77,7 @@ func _input(evt) -> void :
             tween.tween_property(item, "position", item.position + Vector2(0, -64), 0.25)
             tween.tween_interval(0.5)
             tween.tween_property(item, "modulate", Color(1, 1, 1, 0), 0.25)
-            tween.parallel().tween_property(item, "position", $"../Player".global_position, 0.25)
+            tween.parallel().tween_property(item, "position", get_tree().root.get_node("Main/Node2D/Player").position, 0.25)
             
         #elif mouse_entered_chest and player_entered_chest :
             #$Sprite2D.texture = load("res://Arts/Chest.png")
