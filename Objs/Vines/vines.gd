@@ -8,10 +8,10 @@ var tablet_visible       := false
 
 # Dict => Attr_Name : [type(bool, int, str), whatToChange ]
 @export var attributes: Dictionary
-@onready var hint = $TextHint
+@onready var label_anim = $Icon/IconTexture/AnimationPlayer
 
 func _ready():
-    hint.visible = false
+    #hint.visible = false
     add_to_group("Objects")
     add_to_group("Vines")
     
@@ -24,12 +24,15 @@ func _ready():
 
 func _on_range_body_entered(body: Node2D):
     if (body.name == "Player"):
-        hint.visible = true
+        #hint.visible = true
+        label_anim.play("popout")
+        
         player_entered_vines = true
     
 func _on_range_body_exited(body: Node2D):
     if (body.name == "Player"):
-        hint.visible = false
+        #hint.visible = false
+        label_anim.play_backwards("popout")
         player_entered_vines = false
         tablet_visible = false
         emit_signal("toggle_tablet", false)
