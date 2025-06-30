@@ -10,7 +10,6 @@ size = Vector2(146, 42)
 radius = 128.0
 
 [node name="Vines" type="Node2D"]
-z_index = 1
 script = ExtResource("1_sipp2")
 attributes = {
 "Collision": true,

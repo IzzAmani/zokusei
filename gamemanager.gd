@@ -18,3 +18,6 @@ func change_scene(scene_path: String) :
     if scene.name == "MainMenu" :
         get_tree().paused = false
         $"../MainMenu/".start_anim()
+        
+    elif scene.name == "Main" :
+        $"../Main/UI".offset.x = 0

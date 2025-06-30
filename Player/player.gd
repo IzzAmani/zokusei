@@ -1,8 +1,10 @@
 extends CharacterBody2D
 
 @export var speed = 400
+@export var ori_speed = speed
 @export var direction: Vector2
 @export var player_rot: float = 0
+@export var anim_stop := false
 
 var scr_size;
 var frames = 0
@@ -39,18 +41,20 @@ func _physics_process(delta):
         direction = Vector2(0, -1)
         player_rot = -PI/2
 
+    if !anim_stop :
+        if direction.x == 1 :
+            sprite.play("right")
+
+        elif direction.x == -1 :
+            sprite.play("left")
+
+        elif direction.y == -1:
+            sprite.play("up")
         
-    if direction.x == 1 :
-        sprite.play("right")
-
-    elif direction.x == -1 :
-        sprite.play("left")
-
-    elif direction.y == -1:
-        sprite.play("up")
-    
-    elif direction.y == 1:
-        sprite.play("down")
+        elif direction.y == 1:
+            sprite.play("down")
+    else :
+        sprite.frame = 1
 
 
 
@@ -149,3 +153,15 @@ func _on_down_body_exited(body: Node2D) -> void:
     if body.is_in_group("Crates"): 
         body.get_node("Sprite2D").position = Vector2.ZERO
     detected.body = null
+
+
+
+
+func stop_move(stopping: bool) :
+    if stopping :
+        speed = 0
+        anim_stop = true
+    
+    else :
+        speed = ori_speed
+        anim_stop = false

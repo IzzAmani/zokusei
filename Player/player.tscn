@@ -152,7 +152,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4ntmi"]
-size = Vector2(68, 102)
+size = Vector2(64, 64)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4ntmi"]
 radius = 128.0
@@ -176,6 +176,7 @@ limit_left = 0
 limit_top = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 21)
 shape = SubResource("RectangleShape2D_4ntmi")
 
 [node name="InteractRange" type="Area2D" parent="."]
@@ -193,19 +194,19 @@ texture = ExtResource("3_btcbx")
 [node name="Right" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Right"]
-position = Vector2(32, 0)
+position = Vector2(32, 21)
 shape = SubResource("RectangleShape2D_btcbx")
 
 [node name="Left" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Left"]
-position = Vector2(-32, 0)
+position = Vector2(-32, 21)
 shape = SubResource("RectangleShape2D_btcbx")
 
 [node name="Up" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Up"]
-position = Vector2(0, -50)
+position = Vector2(0, -11)
 rotation = 1.57079
 shape = SubResource("RectangleShape2D_btcbx")
 
