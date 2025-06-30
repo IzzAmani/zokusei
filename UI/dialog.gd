@@ -9,6 +9,7 @@ var is_typing = false
 
 @onready var frame = $Frame
 @onready var textlabel = $Frame/Text
+@onready var animation = $AnimationPlayer
 
 func _ready():
     self.visible = false
@@ -27,11 +28,16 @@ func load_em_text():
 
 func show_text():
     var text = selected_text.pop_front()
+    is_typing = true
     await type_text(text)
+    is_typing = false
 
     
 func type_text(text: String) -> void:
     for i in text.length():
+        if !is_typing:
+            textlabel.text = text
+            return
         var current_text = text.substr(0, i + 1)
         textlabel.text = current_text
         $AudioStreamPlayer2D.play(0.15)
@@ -44,19 +50,29 @@ func next_line():
         finish()
         
 func finish():
-    textlabel.text = ""
-    get_tree().paused = false
-    self.visible = false
-    in_progress = false
+    animation.play("close")
     
 
 func on_display_dialog(dialog):
     if in_progress:
+        if is_typing:
+            is_typing = false
+            return
         next_line()
     else:
+        animation.play("open")
         get_tree().paused = true
         self.visible = true
         in_progress = true
         selected_text = scene_text[dialog].duplicate()
         print(selected_text)
         show_text()
+
+
+func _on_animation_player_animation_finished(anim_name: StringName) -> void:
+    if anim_name == "close":
+        textlabel.text = ""
+        get_tree().paused = false
+        self.visible = false
+        in_progress = false
+        

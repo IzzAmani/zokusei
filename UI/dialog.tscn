@@ -17,7 +17,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(56, 481)]
+"values": [Vector2(56, 750)]
 }
 
 [sub_resource type="Animation" id="Animation_xi45c"]
@@ -78,9 +78,9 @@ anchor_left = 0.04375
 anchor_top = 0.668056
 anchor_right = 0.956469
 anchor_bottom = 0.988445
-offset_top = -0.000335693
+offset_top = 269.0
 offset_right = -0.280029
-offset_bottom = 0.319641
+offset_bottom = 269.32
 grow_horizontal = 2
 texture = ExtResource("1_f8kg0")
 patch_margin_left = 33
@@ -110,6 +110,7 @@ text = "The fuck!"
 metadata/_edit_use_anchors_ = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+process_mode = 3
 libraries = {
 &"": SubResource("AnimationLibrary_wi2ml")
 }
@@ -117,3 +118,5 @@ libraries = {
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 process_mode = 3
 stream = ExtResource("4_xi45c")
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
