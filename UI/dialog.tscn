@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://cbpwa4fol601m" path="res://UI/dialog.gd" id="1_6byeb"]
 [ext_resource type="Texture2D" uid="uid://dgyipbth6341d" path="res://Arts/ui/dialog.png" id="1_f8kg0"]
 [ext_resource type="FontFile" uid="uid://bneiwm4cres16" path="res://Arts/ByteBounce.ttf" id="2_mewqi"]
-[ext_resource type="AudioStream" uid="uid://c4aaqioc74qju" path="res://SFX_UI_MainMenu_0005.ogg" id="4_xi45c"]
+[ext_resource type="AudioStream" uid="uid://j74k6l167xlj" path="res://Blip11.wav" id="4_xi45c"]
 
 [sub_resource type="Animation" id="Animation_6byeb"]
 length = 0.001
@@ -62,6 +62,7 @@ _data = {
 }
 
 [node name="Dialog" type="Control"]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -115,8 +116,7 @@ libraries = {
 &"": SubResource("AnimationLibrary_wi2ml")
 }
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
-process_mode = 3
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_xi45c")
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
