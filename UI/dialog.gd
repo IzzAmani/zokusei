@@ -26,13 +26,14 @@ func load_em_text():
         else:
             return
 
+#show the current text and remove it from the list for the next text.
 func show_text():
     var text = selected_text.pop_front()
     is_typing = true
     await type_text(text)
     is_typing = false
 
-    
+#typewriter animation and sound effect (will be cancelled if clicked during animation)
 func type_text(text: String) -> void:
     for i in text.length():
         if !is_typing:
@@ -40,33 +41,42 @@ func type_text(text: String) -> void:
             return
         var current_text = text.substr(0, i + 1)
         textlabel.text = current_text
-        $AudioStreamPlayer2D.play(0.15)
+        $AudioStreamPlayer.play(0)
         await get_tree().create_timer(.03).timeout
-        
+
+#check if dialog isn't finished
 func next_line():
     if selected_text.size() > 0:
         show_text()
     else:
         finish()
-        
+
+#close the dialog
 func finish():
     animation.play("close")
     
-
+#on signal call function
 func on_display_dialog(dialog):
     if in_progress:
-        if is_typing:
-            is_typing = false
-            return
-        next_line()
+        return
     else:
         animation.play("open")
         get_tree().paused = true
         self.visible = true
-        in_progress = true
         selected_text = scene_text[dialog].duplicate()
         print(selected_text)
         show_text()
+        in_progress = true
+
+#handle input on everywhere
+func _input(evt) -> void:
+    if in_progress:
+        if !animation.is_playing():
+            if evt.is_action_pressed("leftClick"):
+                if is_typing: 
+                    is_typing = false
+                else:
+                    next_line()
 
 
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
