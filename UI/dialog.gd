@@ -61,6 +61,7 @@ func on_display_dialog(dialog):
     if in_progress:
         return
     else:
+        animation.play("open")
         get_tree().paused = true
         self.visible = true
         selected_text = scene_text[dialog].duplicate()
