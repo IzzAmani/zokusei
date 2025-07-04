@@ -1,8 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://bm7ljwum4efuo"]
+[gd_scene load_steps=5 format=3 uid="uid://bm7ljwum4efuo"]
 
 [ext_resource type="Script" uid="uid://cskw5oyjj0rmd" path="res://Objs/Sign/sign.gd" id="1_rgn4h"]
 [ext_resource type="Texture2D" uid="uid://cyilemfh5ocvg" path="res://Arts/sign.png" id="1_xaf4y"]
-[ext_resource type="PackedScene" uid="uid://bxjnwdp3qcgle" path="res://UI/object_interact_icon.tscn" id="3_u1jdl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rgn4h"]
 size = Vector2(64, 64)
@@ -19,6 +18,17 @@ texture_filter = 1
 scale = Vector2(1.77778, 1.77778)
 texture = ExtResource("1_xaf4y")
 
+[node name="InteractLabel" type="Label" parent="."]
+z_index = 10
+offset_left = -120.0
+offset_top = -77.0
+offset_right = 30.0
+offset_bottom = -54.0
+scale = Vector2(1.66924, 1.66924)
+text = "Click to Interact"
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
 [node name="Hitbox" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
@@ -34,22 +44,7 @@ shape = SubResource("CircleShape2D_u1jdl")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area"]
 shape = SubResource("RectangleShape2D_rgn4h")
 
-[node name="Icon" parent="." instance=ExtResource("3_u1jdl")]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -25.5
-offset_top = -96.0
-offset_right = 25.5
-offset_bottom = -45.0
-grow_horizontal = 2
-grow_vertical = 2
-
 [connection signal="body_entered" from="Range" to="." method="_on_range_body_entered"]
 [connection signal="body_exited" from="Range" to="." method="_on_range_body_exited"]
 [connection signal="mouse_entered" from="Area" to="." method="_on_area_mouse_entered"]
 [connection signal="mouse_exited" from="Area" to="." method="_on_area_mouse_exited"]
-
-[editable path="Icon"]

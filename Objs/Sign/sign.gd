@@ -4,20 +4,20 @@ var mouse_entered_tree  := false
 var player_entered_tree := false
 var tablet_visible      := false
 
-@onready var label = $Icon
-@onready var label_anim = $Icon/IconTexture/AnimationPlayer
+@onready var label = $InteractLabel
 @export var dialog: String
 
-#func _ready():
+func _ready():
+    label.visible = false
     
 func _on_range_body_entered(body: Node2D):
     if (body.name == "Player"):
-        label_anim.play("popout")
+        label.visible = true
         player_entered_tree = true
     
 func _on_range_body_exited(body: Node2D):
     if (body.name == "Player"):
-        label_anim.play_backwards("popout")
+        label.visible = false
         player_entered_tree = false
         tablet_visible = false
         #emit_signal("toggle_tablet", tablet_visible)
