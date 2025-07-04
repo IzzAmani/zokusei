@@ -6,7 +6,17 @@
         "KILL YOURSELF"
     ],
     "yes": [
-        "ok"
+        "Welcome to Zokusei!",
+        "In this game, you are stuck as a main character",
+        "Isn't that kanashisou dane?",
+        "Now go out there and make everyone proud.",
+        "Anyway, you are a game developer that got stuck in his own game. I don't know how that's possible.",
+        "Your objective is to get out of this game with your...",
+        "...tablet!",
+        "How convenient!",
+        "Use it to edit other objects to open your path.",
+        "Reach out of bounds to get out!",
+        "Good luck! 頑張って！"
     ],
     "chest": [
         "Left-click the chest to open it."  
@@ -32,7 +42,7 @@
         "Congratulations",
         "You just acquire a torch",
         "Right click to burn object using it."
-    ]
+    ],
     "sorry" : [
         "We are sorry for the lack of features.",
         "We will add more features in the future update.",

@@ -44,8 +44,8 @@ _data = {
 z_index = 300
 layout_mode = 3
 anchors_preset = 0
-offset_right = 51.0
-offset_bottom = 51.0
+offset_right = 34.0
+offset_bottom = 34.0
 
 [node name="IconTexture" type="TextureRect" parent="."]
 texture_filter = 1

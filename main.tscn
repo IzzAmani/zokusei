@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=4 uid="uid://ewsgd2ngo66o"]
+[gd_scene load_steps=32 format=4 uid="uid://ewsgd2ngo66o"]
 
 [ext_resource type="Script" uid="uid://b6timde5es2dd" path="res://main.gd" id="1_5vw27"]
 [ext_resource type="PackedScene" uid="uid://bngmd4lnmsuap" path="res://Player/player.tscn" id="2_1bvp3"]
@@ -20,6 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://ctslhh8ubu2ps" path="res://Scene/pause_menu.tscn" id="13_ycdy4"]
 [ext_resource type="PackedScene" uid="uid://bg8nudo7oysf1" path="res://Maps/room_3.tscn" id="14_getpj"]
 [ext_resource type="PackedScene" uid="uid://bvgohg2y5365e" path="res://Maps/room_3A.tscn" id="15_ryguw"]
+[ext_resource type="PackedScene" uid="uid://b6gpmbtn2e8yh" path="res://UI/PlayerUI.tscn" id="16_2cqfq"]
 [ext_resource type="PackedScene" uid="uid://dos43jnsyv7s6" path="res://Maps/room_3B.tscn" id="16_getpj"]
 [ext_resource type="PackedScene" uid="uid://by6v12t3dx81w" path="res://Maps/room_3Bb.tscn" id="17_d13ii"]
 [ext_resource type="PackedScene" uid="uid://cjgy00c4c6v20" path="res://Maps/room_4.tscn" id="17_ryguw"]
@@ -162,6 +163,9 @@ position = Vector2(0, 447)
 [node name="roomE" parent="Node2D" instance=ExtResource("19_xuqvo")]
 position = Vector2(5633, 1792)
 
+[node name="Door" parent="Node2D/roomE" instance=ExtResource("5_lquwl")]
+position = Vector2(6337, 1792)
+
 [node name="roomEA" parent="Node2D" instance=ExtResource("25_kq58d")]
 position = Vector2(5633, 896)
 
@@ -270,6 +274,8 @@ layer = 128
 offset = Vector2(-2480, 0)
 transform = Transform2D(1, 0, 0, 1, -2480, 0)
 
+[node name="PlayerUI" parent="UI" instance=ExtResource("16_2cqfq")]
+
 [node name="Transition" parent="UI" instance=ExtResource("8_5vw27")]
 
 [node name="Tablet" parent="UI" instance=ExtResource("7_272bh")]
@@ -283,5 +289,6 @@ visible = false
 [node name="Dialog" parent="UI" instance=ExtResource("11_efxa6")]
 scene_text_file = "res://dialog.json"
 
-[node name="Door" parent="." instance=ExtResource("5_lquwl")]
-position = Vector2(6337, 1792)
+[node name="Sign" parent="." instance=ExtResource("6_xuqvo")]
+position = Vector2(865, 533)
+dialog = "yes"
