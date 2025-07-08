@@ -31,6 +31,7 @@ texture = ExtResource("2_ggffs")
 
 [node name="Fire" parent="." instance=ExtResource("2_q52go")]
 position = Vector2(0, 4)
+
 [node name="Hitbox" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
